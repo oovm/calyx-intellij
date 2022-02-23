@@ -19,7 +19,7 @@
         COMMENT = 'regexp:(//|#)[^\r\n]*'
         BLOCK_COMMENT = 'regexp:[/][*][^*]*[*]+([^/*][^*]*[*]+)*[/]'
 
-        INCLUDE = '@include'
+        IMPORT = 'import'
         INHERIT = '@inherit'
         IMPORT = '@import'
         EXPORT = '@export'
@@ -63,26 +63,23 @@
     ]
 }
 
-Futil ::= expression*;
+Futil ::= statements*;
+statements ::=
+    import_statement
+  | component_statement
+  | group_statement
+  | SEMICOLON
+  ;
+// ---------------------------------------------------------------------------------------------------------------------
+import_statement ::= IMPORT string_inline;
+IMPORT ::= "import"
+// ---------------------------------------------------------------------------------------------------------------------
+component_statement ::= COMPONENT insert_dot string_inline;
+COMPONENT ::= "component"
+// ------------------------------------
+group_statement ::= GROUP identifier;
+GROUP  ::= "group";
 
-expression ::= scope
-    | BACK_TOP
-    | include_statement
-    | inherit_statement
-    | export_statement
-    | insert_pair
-    | insert_item
-    | annotation
-    | SEMICOLON;
-// ------------------------------------
-export_statement ::= EXPORT [string_prefix] string_inline;
-// ------------------------------------
-inherit_statement ::= INHERIT (predefined_symbol | [string_prefix] string_inline);
-predefined_symbol ::= SYMBOL;
-// -------------------------------------
-include_statement ::= INCLUDE [string_prefix] string_inline (AS key_symbol | <<paired include_inner>>);
-private include_inner ::= [include_item (COMMA include_item)* [COMMA]];
-private include_item ::= key_symbol AS key_symbol | key_symbol;
 // ------------------------------------
 scope ::= <<paired scope_inner>>;
 private scope_inner ::=
@@ -121,7 +118,7 @@ annotation ::= annotation_mark <<paired anno_inner>>;
 annotation_mark ::= AT SYMBOL;
 private anno_inner ::= [anno_item (COMMA anno_item)* [COMMA]];
 private anno_item  ::= key_symbol EQ anno_value | anno_value;
-private anno_value ::= value | predefined_symbol;
+private anno_value ::= value | identi;
 // ------------------------------------
 table ::= [type_hint] <<paired table_inner>>;
 private table_inner ::= [table_item ([COMMA] table_item)* [COMMA]];

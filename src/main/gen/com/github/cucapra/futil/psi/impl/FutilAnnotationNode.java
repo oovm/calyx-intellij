@@ -41,12 +41,6 @@ public class FutilAnnotationNode extends ASTWrapperPsiElement implements FutilAn
 
   @Override
   @NotNull
-  public List<FutilPredefinedSymbol> getPredefinedSymbolList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, FutilPredefinedSymbol.class);
-  }
-
-  @Override
-  @NotNull
   public List<FutilValue> getValueList() {
     return PsiTreeUtil.getChildrenOfTypeAsList(this, FutilValue.class);
   }

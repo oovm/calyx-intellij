@@ -14,9 +14,6 @@ public interface FutilAnnotation extends PsiElement {
   List<FutilKeySymbol> getKeySymbolList();
 
   @NotNull
-  List<FutilPredefinedSymbol> getPredefinedSymbolList();
-
-  @NotNull
   List<FutilValue> getValueList();
 
   @Nullable

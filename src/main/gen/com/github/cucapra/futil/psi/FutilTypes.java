@@ -10,11 +10,13 @@ public interface FutilTypes {
 
   IElementType ANNOTATION = new FutilElementType("ANNOTATION");
   IElementType ANNOTATION_MARK = new FutilElementType("ANNOTATION_MARK");
+  IElementType COMPONENT = new FutilElementType("COMPONENT");
+  IElementType COMPONENT_STATEMENT = new FutilElementType("COMPONENT_STATEMENT");
   IElementType ESCAPED = new FutilElementType("ESCAPED");
-  IElementType EXPORT_STATEMENT = new FutilElementType("EXPORT_STATEMENT");
-  IElementType EXPRESSION = new FutilElementType("EXPRESSION");
-  IElementType INCLUDE_STATEMENT = new FutilElementType("INCLUDE_STATEMENT");
-  IElementType INHERIT_STATEMENT = new FutilElementType("INHERIT_STATEMENT");
+  IElementType GROUP = new FutilElementType("GROUP");
+  IElementType GROUP_STATEMENT = new FutilElementType("GROUP_STATEMENT");
+  IElementType IMPORT = new FutilElementType("IMPORT");
+  IElementType IMPORT_STATEMENT = new FutilElementType("IMPORT_STATEMENT");
   IElementType INSERT_DOT = new FutilElementType("INSERT_DOT");
   IElementType INSERT_ITEM = new FutilElementType("INSERT_ITEM");
   IElementType INSERT_PAIR = new FutilElementType("INSERT_PAIR");
@@ -22,10 +24,10 @@ public interface FutilTypes {
   IElementType KEY_SYMBOL = new FutilElementType("KEY_SYMBOL");
   IElementType NUMBER_SUFFIX = new FutilElementType("NUMBER_SUFFIX");
   IElementType PAIR = new FutilElementType("PAIR");
-  IElementType PREDEFINED_SYMBOL = new FutilElementType("PREDEFINED_SYMBOL");
   IElementType REF = new FutilElementType("REF");
   IElementType SCOPE = new FutilElementType("SCOPE");
   IElementType SCOPE_SYMBOL = new FutilElementType("SCOPE_SYMBOL");
+  IElementType STATEMENTS = new FutilElementType("STATEMENTS");
   IElementType STRING_INLINE = new FutilElementType("STRING_INLINE");
   IElementType STRING_MULTI = new FutilElementType("STRING_MULTI");
   IElementType STRING_PREFIX = new FutilElementType("STRING_PREFIX");
@@ -57,8 +59,9 @@ public interface FutilTypes {
   IElementType EQ = new FutilElementType("=");
   IElementType ESCAPE = new FutilElementType("\\");
   IElementType EXPORT = new FutilElementType("@export");
+  IElementType IDENTI = new FutilElementType("identi");
+  IElementType IDENTIFIER = new FutilElementType("identifier");
   IElementType IMPORT = new FutilElementType("@import");
-  IElementType INCLUDE = new FutilElementType("@include");
   IElementType INHERIT = new FutilElementType("@inherit");
   IElementType INTEGER = new FutilElementType("INTEGER");
   IElementType NAN = new FutilElementType("nan");
@@ -82,20 +85,26 @@ public interface FutilTypes {
       else if (type == ANNOTATION_MARK) {
         return new FutilAnnotationMarkNode(node);
       }
+      else if (type == COMPONENT) {
+        return new FutilComponentNode(node);
+      }
+      else if (type == COMPONENT_STATEMENT) {
+        return new FutilComponentStatementNode(node);
+      }
       else if (type == ESCAPED) {
         return new FutilEscapedNode(node);
       }
-      else if (type == EXPORT_STATEMENT) {
-        return new FutilExportStatementNode(node);
+      else if (type == GROUP) {
+        return new FutilGroupNode(node);
       }
-      else if (type == EXPRESSION) {
-        return new FutilExpressionNode(node);
+      else if (type == GROUP_STATEMENT) {
+        return new FutilGroupStatementNode(node);
       }
-      else if (type == INCLUDE_STATEMENT) {
-        return new FutilIncludeStatementNode(node);
+      else if (type == IMPORT) {
+        return new FutilImportNode(node);
       }
-      else if (type == INHERIT_STATEMENT) {
-        return new FutilInheritStatementNode(node);
+      else if (type == IMPORT_STATEMENT) {
+        return new FutilImportStatementNode(node);
       }
       else if (type == INSERT_DOT) {
         return new FutilInsertDotNode(node);
@@ -118,9 +127,6 @@ public interface FutilTypes {
       else if (type == PAIR) {
         return new FutilPairNode(node);
       }
-      else if (type == PREDEFINED_SYMBOL) {
-        return new FutilPredefinedSymbolNode(node);
-      }
       else if (type == REF) {
         return new FutilRefNode(node);
       }
@@ -129,6 +135,9 @@ public interface FutilTypes {
       }
       else if (type == SCOPE_SYMBOL) {
         return new FutilScopeSymbolNode(node);
+      }
+      else if (type == STATEMENTS) {
+        return new FutilStatementsNode(node);
       }
       else if (type == STRING_INLINE) {
         return new FutilStringInlineNode(node);

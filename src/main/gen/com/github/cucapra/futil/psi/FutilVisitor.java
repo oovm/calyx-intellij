@@ -7,6 +7,18 @@ import com.intellij.psi.PsiElement;
 
 public class FutilVisitor extends PsiElementVisitor {
 
+  public void visitComponent(@NotNull FutilComponent o) {
+    visitPsiElement(o);
+  }
+
+  public void visitGroup(@NotNull FutilGroup o) {
+    visitPsiElement(o);
+  }
+
+  public void visitImport(@NotNull FutilImport o) {
+    visitPsiElement(o);
+  }
+
   public void visitAnnotation(@NotNull FutilAnnotation o) {
     visitPsiElement(o);
   }
@@ -15,23 +27,19 @@ public class FutilVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitComponentStatement(@NotNull FutilComponentStatement o) {
+    visitPsiElement(o);
+  }
+
   public void visitEscaped(@NotNull FutilEscaped o) {
     visitPsiElement(o);
   }
 
-  public void visitExportStatement(@NotNull FutilExportStatement o) {
+  public void visitGroupStatement(@NotNull FutilGroupStatement o) {
     visitPsiElement(o);
   }
 
-  public void visitExpression(@NotNull FutilExpression o) {
-    visitPsiElement(o);
-  }
-
-  public void visitIncludeStatement(@NotNull FutilIncludeStatement o) {
-    visitPsiElement(o);
-  }
-
-  public void visitInheritStatement(@NotNull FutilInheritStatement o) {
+  public void visitImportStatement(@NotNull FutilImportStatement o) {
     visitPsiElement(o);
   }
 
@@ -63,10 +71,6 @@ public class FutilVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitPredefinedSymbol(@NotNull FutilPredefinedSymbol o) {
-    visitPsiElement(o);
-  }
-
   public void visitRef(@NotNull FutilRef o) {
     visitPsiElement(o);
   }
@@ -76,6 +80,10 @@ public class FutilVisitor extends PsiElementVisitor {
   }
 
   public void visitScopeSymbol(@NotNull FutilScopeSymbol o) {
+    visitPsiElement(o);
+  }
+
+  public void visitStatements(@NotNull FutilStatements o) {
     visitPsiElement(o);
   }
 

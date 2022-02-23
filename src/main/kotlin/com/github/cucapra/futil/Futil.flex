@@ -1,22 +1,22 @@
-package com.github.cucapra.language;
+package com.github.cucapra.futil;
 
 import com.intellij.lexer.FlexLexer;
 import com.intellij.psi.tree.IElementType;
 
 import static com.intellij.psi.TokenType.BAD_CHARACTER;
 import static com.intellij.psi.TokenType.WHITE_SPACE;
-import static com.github.cucapra.language.psi.VomlTypes.*;
+import static com.github.cucapra.futil.psi.FutilTypes.*;
 
 %%
 
 %{
-  public _VomlLexer() {
+  public _FutilLexer() {
     this((java.io.Reader)null);
   }
 %}
 
 %public
-%class _VomlLexer
+%class _FutilLexer
 %implements FlexLexer
 %function advance
 %type IElementType
