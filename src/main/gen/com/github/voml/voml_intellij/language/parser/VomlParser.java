@@ -1,10 +1,10 @@
 // This is a generated file. Not intended for manual editing.
-package com.github.voml.voml_intellij.language.parser;
+package com.github.cucapra.language.parser;
 
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
-import static com.github.voml.voml_intellij.language.psi.VomlTypes.*;
-import static com.github.voml.voml_intellij.language.psi.VomlParserUtil.*;
+import static com.github.cucapra.language.psi.VomlTypes.*;
+import static com.github.cucapra.futil.psi.VomlParserUtil.*;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.tree.TokenSet;

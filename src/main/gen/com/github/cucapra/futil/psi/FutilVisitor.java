@@ -1,0 +1,114 @@
+// This is a generated file. Not intended for manual editing.
+package com.github.cucapra.futil.psi;
+
+import org.jetbrains.annotations.*;
+import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.PsiElement;
+
+public class FutilVisitor extends PsiElementVisitor {
+
+  public void visitAnnotation(@NotNull FutilAnnotation o) {
+    visitPsiElement(o);
+  }
+
+  public void visitAnnotationMark(@NotNull FutilAnnotationMark o) {
+    visitPsiElement(o);
+  }
+
+  public void visitEscaped(@NotNull FutilEscaped o) {
+    visitPsiElement(o);
+  }
+
+  public void visitExportStatement(@NotNull FutilExportStatement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitExpression(@NotNull FutilExpression o) {
+    visitPsiElement(o);
+  }
+
+  public void visitIncludeStatement(@NotNull FutilIncludeStatement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitInheritStatement(@NotNull FutilInheritStatement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitInsertDot(@NotNull FutilInsertDot o) {
+    visitPsiElement(o);
+  }
+
+  public void visitInsertItem(@NotNull FutilInsertItem o) {
+    visitPsiElement(o);
+  }
+
+  public void visitInsertPair(@NotNull FutilInsertPair o) {
+    visitPsiElement(o);
+  }
+
+  public void visitInsertStar(@NotNull FutilInsertStar o) {
+    visitPsiElement(o);
+  }
+
+  public void visitKeySymbol(@NotNull FutilKeySymbol o) {
+    visitPsiElement(o);
+  }
+
+  public void visitNumberSuffix(@NotNull FutilNumberSuffix o) {
+    visitPsiElement(o);
+  }
+
+  public void visitPair(@NotNull FutilPair o) {
+    visitPsiElement(o);
+  }
+
+  public void visitPredefinedSymbol(@NotNull FutilPredefinedSymbol o) {
+    visitPsiElement(o);
+  }
+
+  public void visitRef(@NotNull FutilRef o) {
+    visitPsiElement(o);
+  }
+
+  public void visitScope(@NotNull FutilScope o) {
+    visitPsiElement(o);
+  }
+
+  public void visitScopeSymbol(@NotNull FutilScopeSymbol o) {
+    visitPsiElement(o);
+  }
+
+  public void visitStringInline(@NotNull FutilStringInline o) {
+    visitPsiElement(o);
+  }
+
+  public void visitStringMulti(@NotNull FutilStringMulti o) {
+    visitPsiElement(o);
+  }
+
+  public void visitStringPrefix(@NotNull FutilStringPrefix o) {
+    visitPsiElement(o);
+  }
+
+  public void visitSymbolPath(@NotNull FutilSymbolPath o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTable(@NotNull FutilTable o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTypeHint(@NotNull FutilTypeHint o) {
+    visitPsiElement(o);
+  }
+
+  public void visitValue(@NotNull FutilValue o) {
+    visitPsiElement(o);
+  }
+
+  public void visitPsiElement(@NotNull PsiElement o) {
+    visitElement(o);
+  }
+
+}

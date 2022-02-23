@@ -1,38 +1,40 @@
 // This is a generated file. Not intended for manual editing.
-package com.github.voml.voml_intellij.language.psi;
+package com.github.cucapra.language.psi;
 
+import com.github.cucapra.futil.psi.FutilElementType;
+import com.github.cucapra.futil.psi.VomlTokenType;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.PsiElement;
 import com.intellij.lang.ASTNode;
-import com.github.voml.voml_intellij.language.psi.impl.*;
+import com.github.cucapra.language.psi.impl.*;
 
 public interface VomlTypes {
 
-  IElementType ANNOTATION = new VomlElementType("ANNOTATION");
-  IElementType ANNOTATION_MARK = new VomlElementType("ANNOTATION_MARK");
-  IElementType ESCAPED = new VomlElementType("ESCAPED");
-  IElementType EXPORT_STATEMENT = new VomlElementType("EXPORT_STATEMENT");
-  IElementType EXPRESSION = new VomlElementType("EXPRESSION");
-  IElementType INCLUDE_STATEMENT = new VomlElementType("INCLUDE_STATEMENT");
-  IElementType INHERIT_STATEMENT = new VomlElementType("INHERIT_STATEMENT");
-  IElementType INSERT_DOT = new VomlElementType("INSERT_DOT");
-  IElementType INSERT_ITEM = new VomlElementType("INSERT_ITEM");
-  IElementType INSERT_PAIR = new VomlElementType("INSERT_PAIR");
-  IElementType INSERT_STAR = new VomlElementType("INSERT_STAR");
-  IElementType KEY_SYMBOL = new VomlElementType("KEY_SYMBOL");
-  IElementType NUMBER_SUFFIX = new VomlElementType("NUMBER_SUFFIX");
-  IElementType PAIR = new VomlElementType("PAIR");
-  IElementType PREDEFINED_SYMBOL = new VomlElementType("PREDEFINED_SYMBOL");
-  IElementType REF = new VomlElementType("REF");
-  IElementType SCOPE = new VomlElementType("SCOPE");
-  IElementType SCOPE_SYMBOL = new VomlElementType("SCOPE_SYMBOL");
-  IElementType STRING_INLINE = new VomlElementType("STRING_INLINE");
-  IElementType STRING_MULTI = new VomlElementType("STRING_MULTI");
-  IElementType STRING_PREFIX = new VomlElementType("STRING_PREFIX");
-  IElementType SYMBOL_PATH = new VomlElementType("SYMBOL_PATH");
-  IElementType TABLE = new VomlElementType("TABLE");
-  IElementType TYPE_HINT = new VomlElementType("TYPE_HINT");
-  IElementType VALUE = new VomlElementType("VALUE");
+  IElementType ANNOTATION = new FutilElementType("ANNOTATION");
+  IElementType ANNOTATION_MARK = new FutilElementType("ANNOTATION_MARK");
+  IElementType ESCAPED = new FutilElementType("ESCAPED");
+  IElementType EXPORT_STATEMENT = new FutilElementType("EXPORT_STATEMENT");
+  IElementType EXPRESSION = new FutilElementType("EXPRESSION");
+  IElementType INCLUDE_STATEMENT = new FutilElementType("INCLUDE_STATEMENT");
+  IElementType INHERIT_STATEMENT = new FutilElementType("INHERIT_STATEMENT");
+  IElementType INSERT_DOT = new FutilElementType("INSERT_DOT");
+  IElementType INSERT_ITEM = new FutilElementType("INSERT_ITEM");
+  IElementType INSERT_PAIR = new FutilElementType("INSERT_PAIR");
+  IElementType INSERT_STAR = new FutilElementType("INSERT_STAR");
+  IElementType KEY_SYMBOL = new FutilElementType("KEY_SYMBOL");
+  IElementType NUMBER_SUFFIX = new FutilElementType("NUMBER_SUFFIX");
+  IElementType PAIR = new FutilElementType("PAIR");
+  IElementType PREDEFINED_SYMBOL = new FutilElementType("PREDEFINED_SYMBOL");
+  IElementType REF = new FutilElementType("REF");
+  IElementType SCOPE = new FutilElementType("SCOPE");
+  IElementType SCOPE_SYMBOL = new FutilElementType("SCOPE_SYMBOL");
+  IElementType STRING_INLINE = new FutilElementType("STRING_INLINE");
+  IElementType STRING_MULTI = new FutilElementType("STRING_MULTI");
+  IElementType STRING_PREFIX = new FutilElementType("STRING_PREFIX");
+  IElementType SYMBOL_PATH = new FutilElementType("SYMBOL_PATH");
+  IElementType TABLE = new FutilElementType("TABLE");
+  IElementType TYPE_HINT = new FutilElementType("TYPE_HINT");
+  IElementType VALUE = new FutilElementType("VALUE");
 
   IElementType ACCENT = new VomlTokenType("^");
   IElementType ANGLE_L = new VomlTokenType("<");
