@@ -1,6 +1,6 @@
 package com.github.cucapra.ide.colors
 
-import com.github.cucapra.futil.VomlFile
+import com.github.cucapra.futil.file.VomlFile
 import com.github.cucapra.language.psi.*
 import com.intellij.codeInsight.daemon.impl.HighlightInfo
 import com.intellij.codeInsight.daemon.impl.HighlightInfoType
@@ -91,7 +91,7 @@ class VomlHighlightVisitor : VomlVisitor(), HighlightVisitor {
 
     override fun clone(): HighlightVisitor = VomlHighlightVisitor()
 
-    override fun suitableForFile(file: PsiFile): Boolean = file is com.github.cucapra.futil.VomlFile
+    override fun suitableForFile(file: PsiFile): Boolean = file is VomlFile
 
     override fun visit(element: PsiElement) = element.accept(this)
 }

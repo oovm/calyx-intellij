@@ -19,14 +19,14 @@ Intellij plugin for [VOML](https://github.com/voml), support all IDEs.
     <extensions defaultExtensionNs="com.intellij">
         <fileType
             name="VOML"
-            implementationClass="com.github.cucapra.futil.VomlFileType"
+            implementationClass="com.github.cucapra.futil.file.FutilFileType"
             fieldName="INSTANCE"
             language="VOML"
             extensions="voml"
         />
         <lang.parserDefinition
             language="VOML"
-            implementationClass="com.github.cucapra.futil.VomlParserDefinition"
+            implementationClass="com.github.cucapra.futil.psi.VomlParserDefinition"
         />
         <!-- Highlight -->
         <colorSettingsPage implementation="com.github.cucapra.ide.colors.VomlColorSettingsPage"/>

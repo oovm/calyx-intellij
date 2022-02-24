@@ -1,12 +1,11 @@
 package com.github.cucapra.ide.braces
 
-import com.github.cucapra.futil.VomlFileType
-import com.github.cucapra.futil.VomlLanguage
+import com.github.cucapra.futil.file.FutilFileType
 import com.intellij.codeInsight.highlighting.PairedBraceMatcherAdapter
 import com.intellij.openapi.editor.highlighter.HighlighterIterator
 import com.intellij.openapi.fileTypes.FileType
 
-class VomlBraceMatcher : PairedBraceMatcherAdapter(VomlBaseBraceMatcher(), com.github.cucapra.futil.VomlLanguage.INSTANCE) {
+class VomlBraceMatcher : PairedBraceMatcherAdapter(VomlBaseBraceMatcher(), com.github.cucapra.futil.FutilLanguage.INSTANCE) {
     override fun isLBraceToken(iterator: HighlighterIterator, fileText: CharSequence, fileType: FileType): Boolean =
         isBrace(iterator, fileText, fileType, true)
 
@@ -19,7 +18,7 @@ class VomlBraceMatcher : PairedBraceMatcherAdapter(VomlBaseBraceMatcher(), com.g
         fileType: FileType,
         left: Boolean
     ): Boolean {
-        if (fileType != com.github.cucapra.futil.VomlFileType.INSTANCE) return false
+        if (fileType != FutilFileType.INSTANCE) return false
         val pair = findPair(left, iterator, fileText, fileType)
         return pair != null
     }

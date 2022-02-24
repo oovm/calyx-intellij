@@ -1,6 +1,6 @@
 package com.github.cucapra.ide.colors
 
-import com.github.cucapra.ide.icons.VomlIcons
+import com.github.cucapra.ide.icons.CalyxIcons
 import com.github.cucapra.ide.CalyxBundle
 import com.intellij.openapi.options.colors.ColorDescriptor
 import com.intellij.openapi.options.colors.ColorSettingsPage
@@ -19,7 +19,7 @@ class VomlColorSettingsPage : ColorSettingsPage {
 
     override fun getDisplayName() = CalyxBundle.message("filetype.voml.name")
 
-    override fun getIcon() = VomlIcons.FILE
+    override fun getIcon() = CalyxIcons.FILE
 
     override fun getHighlighter() = VomlSyntaxHighlighter()
 

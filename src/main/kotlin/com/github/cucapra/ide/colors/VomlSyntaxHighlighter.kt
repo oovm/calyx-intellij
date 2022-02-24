@@ -1,6 +1,6 @@
 package com.github.cucapra.ide.colors
 
-import com.github.cucapra.futil.VomlLexerAdapter
+import com.github.cucapra.futil.psi.FutilLexerAdapter
 import com.github.cucapra.language.psi.VomlTypes.*
 import com.intellij.lexer.Lexer
 import com.intellij.openapi.editor.colors.TextAttributesKey
@@ -10,7 +10,7 @@ import com.intellij.psi.tree.IElementType
 
 class VomlSyntaxHighlighter : SyntaxHighlighterBase() {
     override fun getHighlightingLexer(): Lexer {
-        return VomlLexerAdapter()
+        return FutilLexerAdapter()
     }
 
     override fun getTokenHighlights(tokenType: IElementType): Array<TextAttributesKey> {

@@ -1,6 +1,6 @@
 package com.github.cucapra.ide.assist.fixers
 
-import com.github.cucapra.futil.VomlFile
+import com.github.cucapra.futil.file.VomlFile
 import com.intellij.lang.SmartEnterProcessorWithFixers
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
@@ -27,7 +27,7 @@ class VomlSmartEnterProcessor : SmartEnterProcessorWithFixers() {
 
     private class PlainEnterProcessor : FixEnterProcessor() {
         override fun doEnter(atCaret: PsiElement, file: PsiFile, editor: Editor, modified: Boolean): Boolean {
-            if (file !is com.github.cucapra.futil.VomlFile) return false
+            if (file !is VomlFile) return false
             plainEnter(editor)
             return true
         }

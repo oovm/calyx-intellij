@@ -1,6 +1,5 @@
 package com.github.cucapra.ide.codeStyle
 
-import com.github.cucapra.futil.VomlLanguage
 import com.intellij.application.options.CodeStyleAbstractConfigurable
 import com.intellij.application.options.SmartIndentOptionsEditor
 import com.intellij.psi.codeStyle.CodeStyleConfigurable
@@ -10,7 +9,7 @@ import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import com.intellij.psi.codeStyle.LanguageCodeStyleSettingsProvider
 
 class VomlLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider() {
-    override fun getLanguage() = com.github.cucapra.futil.VomlLanguage.INSTANCE
+    override fun getLanguage() = com.github.cucapra.futil.FutilLanguage.INSTANCE
 
     override fun getIndentOptionsEditor() = SmartIndentOptionsEditor()
 

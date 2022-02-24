@@ -1,6 +1,6 @@
 package com.github.cucapra.ide.todo
 
-import com.github.cucapra.futil.VomlLexerAdapter
+import com.github.cucapra.futil.psi.FutilLexerAdapter
 import com.github.cucapra.futil.psi.Voml_COMMENTS
 import com.intellij.lexer.Lexer
 import com.intellij.psi.impl.cache.impl.BaseFilterLexer
@@ -10,7 +10,7 @@ import com.intellij.psi.search.UsageSearchContext
 
 class VomlTodoIndexer : LexerBasedTodoIndexer() {
     override fun createLexer(consumer: OccurrenceConsumer): Lexer {
-        return object : BaseFilterLexer(VomlLexerAdapter(), consumer) {
+        return object : BaseFilterLexer(FutilLexerAdapter(), consumer) {
             override fun advance() {
                 if (myDelegate.tokenType in Voml_COMMENTS) {
                     scanWordsInToken(UsageSearchContext.IN_COMMENTS.toInt(), false, false)

@@ -1,6 +1,5 @@
 package com.github.cucapra.ide.formatter
 
-import com.github.cucapra.futil.VomlLanguage
 import com.github.cucapra.language.psi.VomlTypes
 import com.intellij.formatting.*
 import com.intellij.lang.ASTNode
@@ -60,7 +59,7 @@ data class VomlFormatterContext(
 ) {
     companion object {
         fun create(settings: CodeStyleSettings): VomlFormatterContext {
-            val commonSettings = settings.getCommonSettings(com.github.cucapra.futil.VomlLanguage.INSTANCE)
+            val commonSettings = settings.getCommonSettings(com.github.cucapra.futil.FutilLanguage.INSTANCE)
             return VomlFormatterContext(commonSettings, createSpacingBuilder(commonSettings))
         }
     }

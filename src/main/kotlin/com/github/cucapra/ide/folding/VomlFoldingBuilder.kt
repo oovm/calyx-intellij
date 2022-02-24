@@ -1,6 +1,6 @@
 package com.github.cucapra.ide.folding
 
-import com.github.cucapra.futil.VomlFile
+import com.github.cucapra.futil.file.VomlFile
 import com.github.cucapra.language.psi.*
 import com.intellij.lang.ASTNode
 import com.intellij.lang.folding.CustomFoldingBuilder
@@ -18,7 +18,7 @@ class VomlFoldingBuilder : CustomFoldingBuilder(), DumbAware {
         document: Document,
         quick: Boolean
     ) {
-        if (root !is com.github.cucapra.futil.VomlFile) return
+        if (root !is VomlFile) return
         val visitor = VomlFoldingVisitor(descriptors)
         PsiTreeUtil.processElements(root) {
             it.accept(visitor); true
