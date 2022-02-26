@@ -4,7 +4,6 @@ import com.github.cucapra.futil.psi.endOffset
 import com.github.cucapra.futil.psi.getNextNonCommentSibling
 import com.github.cucapra.futil.psi.getPrevNonCommentSibling
 import com.github.cucapra.futil.psi.getPrevNonWhitespaceSibling
-import com.github.cucapra.language.psi.*
 import com.intellij.lang.SmartEnterProcessorWithFixers
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiElement

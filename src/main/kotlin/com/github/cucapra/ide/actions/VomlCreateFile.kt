@@ -17,6 +17,6 @@ class VomlCreateFile : CreateFileFromTemplateAction(NAME, "Create new Voml file"
     override fun getActionName(directory: PsiDirectory, newName: String, templateName: String): String = NAME
 
     companion object {
-        private val NAME = CalyxBundle.message("filetype.voml.create")
+        private val NAME = CalyxBundle.message("filetype.futil.create")
     }
 }

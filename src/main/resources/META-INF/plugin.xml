@@ -26,11 +26,11 @@ Intellij plugin for [VOML](https://github.com/voml), support all IDEs.
         />
         <lang.parserDefinition
             language="VOML"
-            implementationClass="com.github.cucapra.futil.psi.VomlParserDefinition"
+            implementationClass="com.github.cucapra.futil.psi.FutilParserDefinition"
         />
         <!-- Highlight -->
         <colorSettingsPage implementation="com.github.cucapra.ide.colors.VomlColorSettingsPage"/>
-        <highlightVisitor implementation="com.github.cucapra.ide.colors.VomlHighlightVisitor"/>
+        <highlightVisitor implementation="com.github.cucapra.ide.colors.FutilHighlightVisitor"/>
         <lang.syntaxHighlighter
             language="VOML"
             implementationClass="com.github.cucapra.ide.colors.VomlSyntaxHighlighter"
@@ -46,11 +46,11 @@ Intellij plugin for [VOML](https://github.com/voml), support all IDEs.
         />
         <lang.quoteHandler
             language="VOML"
-            implementationClass="com.github.cucapra.ide.VomlQuoteHandler"
+            implementationClass="com.github.cucapra.ide.FutilQuoteHandler"
         />
         <lang.foldingBuilder
             language="VOML"
-            implementationClass="com.github.cucapra.ide.folding.VomlFoldingBuilder"
+            implementationClass="com.github.cucapra.ide.folding.FutilFoldingBuilder"
         />
         <indexPatternBuilder
             implementation="com.github.cucapra.ide.todo.VomlTodoIndexPatternBuilder"
@@ -61,24 +61,16 @@ Intellij plugin for [VOML](https://github.com/voml), support all IDEs.
         />
         <completion.contributor
             language="VOML"
-            implementationClass="com.github.cucapra.ide.completion.VomlOptionCompletionContributor"
+            implementationClass="com.github.cucapra.ide.completion.CompletionContributor"
         />
         <annotator
             language="VOML"
             implementationClass="com.github.cucapra.ide.annotator.VomlStringEscapingAnnotator"
         />
-        <annotator
-            language="VOML"
-            implementationClass="com.github.cucapra.ide.annotator.VomlScopeChecker"
-        />
-        <annotator
-            language="VOML"
-            implementationClass="com.github.cucapra.ide.annotator.VomlTableChecker"
-        />
         <additionalTextAttributes scheme="Default" file="colors/VomlDefault.xml"/>
         <additionalTextAttributes scheme="Darcula" file="colors/VomlDarcula.xml"/>
         <langCodeStyleSettingsProvider
-            implementation="com.github.cucapra.ide.codeStyle.VomlLanguageCodeStyleSettingsProvider"
+            implementation="com.github.cucapra.ide.codeStyle.FutilLanguageCodeStyleSettings"
         />
         <lang.formatter
             language="VOML"

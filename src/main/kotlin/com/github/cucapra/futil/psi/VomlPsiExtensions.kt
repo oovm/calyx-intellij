@@ -1,6 +1,5 @@
 package com.github.cucapra.futil.psi
 
-import com.github.cucapra.language.psi.VomlTypes
 import com.intellij.extapi.psi.StubBasedPsiElementBase
 import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.openapi.util.TextRange
@@ -189,5 +188,3 @@ inline val <T : StubElement<*>> StubBasedPsiElement<T>.greenStub: T?
 
 
 fun tokenSetOf(vararg tokens: IElementType) = TokenSet.create(*tokens)
-
-val Voml_COMMENTS = tokenSetOf(VomlTypes.BLOCK_COMMENT, VomlTypes.COMMENT)

@@ -17,7 +17,7 @@ class VomlColorSettingsPage : ColorSettingsPage {
 
     override fun getColorDescriptors(): Array<ColorDescriptor> = ColorDescriptor.EMPTY_ARRAY
 
-    override fun getDisplayName() = CalyxBundle.message("filetype.voml.name")
+    override fun getDisplayName() = CalyxBundle.message("filetype.futil.name")
 
     override fun getIcon() = CalyxIcons.FILE
 

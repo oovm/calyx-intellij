@@ -7,11 +7,11 @@ import com.intellij.openapi.fileTypes.LanguageFileType
 import javax.swing.Icon
 
 object FutilFileType : LanguageFileType(FutilLanguage) {
-    override fun getName(): String = CalyxBundle.message("filetype.voml.name")
+    override fun getName(): String = FutilLanguage.id
 
-    override fun getDescription(): String = CalyxBundle.message("filetype.voml.description")
+    override fun getDescription(): String = CalyxBundle.message("filetype.futil.description")
 
-    override fun getDefaultExtension(): String = "voml"
+    override fun getDefaultExtension(): String = "futil"
 
     override fun getIcon(): Icon = CalyxIcons.FILE
 }

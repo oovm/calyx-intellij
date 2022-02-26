@@ -1,7 +1,7 @@
 package com.github.cucapra.ide.colors
 
 import com.github.cucapra.futil.psi.FutilLexerAdapter
-import com.github.cucapra.language.psi.VomlTypes.*
+import com.github.cucapra.futil.psi.FutilTypes.*
 import com.intellij.lexer.Lexer
 import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase
@@ -20,9 +20,8 @@ class VomlSyntaxHighlighter : SyntaxHighlighterBase() {
     private fun getTokenColor(tokenType: IElementType): VomlColor? {
         return when (tokenType) {
             //
-            INCLUDE, INHERIT, AS -> VomlColor.KEYWORD
+            IMPORT, INHERIT, AS -> VomlColor.KEYWORD
             ANNOTATION, ANNOTATION_MARK -> VomlColor.ANNOTATION
-            PREDEFINED_SYMBOL -> VomlColor.PREDEFINED
             //
             STRING_PREFIX -> VomlColor.STRING_HINT
             NUMBER_SUFFIX -> VomlColor.NUMBER_HINT

@@ -1,28 +1,22 @@
 package com.github.cucapra.ide.codeStyle
 
+import com.github.cucapra.futil.FutilLanguage
 import com.intellij.application.options.CodeStyleAbstractConfigurable
 import com.intellij.application.options.SmartIndentOptionsEditor
-import com.intellij.psi.codeStyle.CodeStyleConfigurable
-import com.intellij.psi.codeStyle.CodeStyleSettings
-import com.intellij.psi.codeStyle.CodeStyleSettingsCustomizable
-import com.intellij.psi.codeStyle.CommonCodeStyleSettings
-import com.intellij.psi.codeStyle.LanguageCodeStyleSettingsProvider
+import com.intellij.psi.codeStyle.*
 
-class VomlLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider() {
-    override fun getLanguage() = com.github.cucapra.futil.FutilLanguage.INSTANCE
+class FutilLanguageCodeStyleSettings : LanguageCodeStyleSettingsProvider() {
+    override fun getLanguage() = FutilLanguage
 
     override fun getIndentOptionsEditor() = SmartIndentOptionsEditor()
 
     override fun createConfigurable(
         settings: CodeStyleSettings,
         modelSettings: CodeStyleSettings
-    ): CodeStyleConfigurable {
-        return object : CodeStyleAbstractConfigurable(
-            settings,
-            modelSettings,
-            configurableDisplayName
-        ) {
-            override fun createPanel(settings: CodeStyleSettings?) = VomlCodeStyleMainPanel(currentSettings, settings)
+    ): CodeStyleConfigurable = object :
+        CodeStyleAbstractConfigurable(settings, modelSettings, configurableDisplayName) {
+        override fun createPanel(settings: CodeStyleSettings?): CodeStyleMainPanel? {
+            return settings?.let { CodeStyleMainPanel(currentSettings, it) }
         }
     }
 
@@ -44,7 +38,7 @@ class VomlLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider(
             SettingsType.LANGUAGE_SPECIFIC -> {
                 consumer.showStandardOptions()
             }
-            else -> { }
+            else -> {}
         }
     }
 
@@ -62,7 +56,7 @@ class VomlLanguageCodeStyleSettingsProvider : LanguageCodeStyleSettingsProvider(
     }
 
     override fun getCodeSample(settingsType: SettingsType) =
-"""@inherit user;
+        """@inherit user;
 
 @include json "some/path/test.json" as json;
 @include "https://example.org/test.voml" {

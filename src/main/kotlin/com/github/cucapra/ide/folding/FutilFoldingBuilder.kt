@@ -1,7 +1,6 @@
 package com.github.cucapra.ide.folding
 
-import com.github.cucapra.futil.file.VomlFile
-import com.github.cucapra.language.psi.*
+import com.github.cucapra.futil.file.FutilFileNode
 import com.intellij.lang.ASTNode
 import com.intellij.lang.folding.CustomFoldingBuilder
 import com.intellij.lang.folding.FoldingDescriptor
@@ -11,14 +10,14 @@ import com.intellij.openapi.util.TextRange
 import com.intellij.psi.PsiElement
 import com.intellij.psi.util.PsiTreeUtil
 
-class VomlFoldingBuilder : CustomFoldingBuilder(), DumbAware {
+class FutilFoldingBuilder : CustomFoldingBuilder(), DumbAware {
     override fun buildLanguageFoldRegions(
         descriptors: MutableList<FoldingDescriptor>,
         root: PsiElement,
         document: Document,
         quick: Boolean
     ) {
-        if (root !is VomlFile) return
+        if (root !is FutilFileNode) return
         val visitor = VomlFoldingVisitor(descriptors)
         PsiTreeUtil.processElements(root) {
             it.accept(visitor); true
@@ -27,7 +26,7 @@ class VomlFoldingBuilder : CustomFoldingBuilder(), DumbAware {
 
     override fun getLanguagePlaceholderText(node: ASTNode, range: TextRange) =
         when (node.elementType) {
-            VomlTypes.TABLE -> "[...]"
+        //    VomlTypes.TABLE -> "[...]"
             else -> "{...}"
         }
 
