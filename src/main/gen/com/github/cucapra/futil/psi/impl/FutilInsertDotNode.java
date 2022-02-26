@@ -27,10 +27,4 @@ public class FutilInsertDotNode extends ASTWrapperPsiElement implements FutilIns
     else super.accept(visitor);
   }
 
-  @Override
-  @NotNull
-  public PsiElement getDot() {
-    return findNotNullChildByType(DOT);
-  }
-
 }

@@ -10,7 +10,4 @@ public interface FutilRef extends PsiElement {
   @NotNull
   FutilSymbolPath getSymbolPath();
 
-  @NotNull
-  PsiElement getCite();
-
 }

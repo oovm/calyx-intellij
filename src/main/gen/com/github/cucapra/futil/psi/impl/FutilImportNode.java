@@ -27,10 +27,4 @@ public class FutilImportNode extends ASTWrapperPsiElement implements FutilImport
     else super.accept(visitor);
   }
 
-  @Override
-  @NotNull
-  public PsiElement getImport() {
-    return findNotNullChildByType(IMPORT);
-  }
-
 }

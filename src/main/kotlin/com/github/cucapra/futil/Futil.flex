@@ -10,9 +10,9 @@ import static com.github.cucapra.futil.psi.FutilTypes.*;
 %%
 
 %{
-  public _FutilLexer() {
+public _FutilLexer() {
     this((java.io.Reader)null);
-  }
+}
 %}
 
 %public
@@ -39,48 +39,38 @@ NON_ESCAPE=[^\\]
 
 %%
 <YYINITIAL> {
-  {WHITE_SPACE}        { return WHITE_SPACE; }
+    {WHITE_SPACE}        { return WHITE_SPACE; }
+    "("                  { return PARENTHESIS_L; }
+    ")"                  { return PARENTHESIS_R; }
+    "["                  { return BRACKET_L; }
+    "]"                  { return BRACKET_R; }
+    "{"                  { return BRACE_L; }
+    "}"                  { return BRACE_R; }
+    "^"                  { return ACCENT; }
+    "<"                  { return ANGLE_L; }
+    ">"                  { return ANGLE_R; }
+    "\""                 { return QUOTATION; }
+    "\\"                 { return ESCAPE; }
+    "="                  { return EQ; }
+    ":"                  { return COLON; }
+    ";"                  { return SEMICOLON; }
+    ","                  { return COMMA; }
+    "$"                  { return CITE; }
+    "."                  { return DOT; }
+    "*"                  { return STAR; }
+    "@"                  { return AT; }
 
-  "@include"           { return INCLUDE; }
-  "@inherit"           { return INHERIT; }
-  "@import"            { return IMPORT; }
-  "@export"            { return EXPORT; }
-  "as"                 { return AS; }
-  "null"               { return NULL; }
-  "("                  { return PARENTHESIS_L; }
-  ")"                  { return PARENTHESIS_R; }
-  "["                  { return BRACKET_L; }
-  "]"                  { return BRACKET_R; }
-  "{"                  { return BRACE_L; }
-  "}"                  { return BRACE_R; }
-  "^"                  { return ACCENT; }
-  "<"                  { return ANGLE_L; }
-  ">"                  { return ANGLE_R; }
-  "\""                 { return QUOTATION; }
-  "\\"                 { return ESCAPE; }
-  "="                  { return EQ; }
-  "nan"                { return NAN; }
-  ":"                  { return COLON; }
-  ";"                  { return SEMICOLON; }
-  ","                  { return COMMA; }
-  "$"                  { return CITE; }
-  "."                  { return DOT; }
-  "*"                  { return STAR; }
-  "@"                  { return AT; }
-  "DECIMAL_BAD"        { return DECIMAL_BAD; }
-
-  {COMMENT}            { return COMMENT; }
-  {BLOCK_COMMENT}      { return BLOCK_COMMENT; }
-  {BOOLEAN}            { return BOOLEAN; }
-  {SYMBOL}             { return SYMBOL; }
-  {STRING}             { return STRING; }
-  {BYTE}               { return BYTE; }
-  {INTEGER}            { return INTEGER; }
-  {DECIMAL}            { return DECIMAL; }
-  {SIGN}               { return SIGN; }
-  {BACK_TOP}           { return BACK_TOP; }
-  {NON_ESCAPE}         { return NON_ESCAPE; }
-
+    {COMMENT}            { return COMMENT; }
+    {BLOCK_COMMENT}      { return BLOCK_COMMENT; }
+    {BOOLEAN}            { return BOOLEAN; }
+    {SYMBOL}             { return SYMBOL; }
+    {STRING}             { return STRING; }
+    {BYTE}               { return BYTE; }
+    {INTEGER}            { return INTEGER; }
+    {DECIMAL}            { return DECIMAL; }
+    {SIGN}               { return SIGN; }
+    {BACK_TOP}           { return BACK_TOP; }
+    {NON_ESCAPE}         { return NON_ESCAPE; }
 }
 
 [^] { return BAD_CHARACTER; }

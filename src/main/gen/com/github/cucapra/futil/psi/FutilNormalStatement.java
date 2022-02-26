@@ -5,6 +5,12 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface FutilInsertDot extends PsiElement {
+public interface FutilNormalStatement extends PsiElement {
+
+  @NotNull
+  FutilBrackets getBrackets();
+
+  @NotNull
+  FutilIdentifier getIdentifier();
 
 }

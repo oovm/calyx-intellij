@@ -38,13 +38,7 @@ public interface FutilValue extends PsiElement {
   PsiElement getDecimal();
 
   @Nullable
-  PsiElement getDecimalBad();
-
-  @Nullable
   PsiElement getInteger();
-
-  @Nullable
-  PsiElement getNull();
 
   @Nullable
   PsiElement getSign();

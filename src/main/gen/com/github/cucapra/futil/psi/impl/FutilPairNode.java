@@ -39,16 +39,4 @@ public class FutilPairNode extends ASTWrapperPsiElement implements FutilPair {
     return findNotNullChildByClass(FutilValue.class);
   }
 
-  @Override
-  @Nullable
-  public PsiElement getColon() {
-    return findChildByType(COLON);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getEq() {
-    return findChildByType(EQ);
-  }
-
 }

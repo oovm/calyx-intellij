@@ -5,9 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface FutilScopeSymbol extends PsiElement {
+public interface FutilNamesapce extends PsiElement {
 
   @NotNull
-  PsiElement getSymbol();
+  List<FutilIdentifier> getIdentifierList();
 
 }

@@ -7,7 +7,4 @@ import com.intellij.psi.PsiElement;
 
 public interface FutilImport extends PsiElement {
 
-  @NotNull
-  PsiElement getImport();
-
 }

@@ -11,14 +11,14 @@ import static com.github.cucapra.futil.psi.FutilTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.cucapra.futil.psi.*;
 
-public class FutilScopeSymbolNode extends ASTWrapperPsiElement implements FutilScopeSymbol {
+public class FutilNamesapceNode extends ASTWrapperPsiElement implements FutilNamesapce {
 
-  public FutilScopeSymbolNode(@NotNull ASTNode node) {
+  public FutilNamesapceNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull FutilVisitor visitor) {
-    visitor.visitScopeSymbol(this);
+    visitor.visitNamesapce(this);
   }
 
   @Override
@@ -29,8 +29,8 @@ public class FutilScopeSymbolNode extends ASTWrapperPsiElement implements FutilS
 
   @Override
   @NotNull
-  public PsiElement getSymbol() {
-    return findNotNullChildByType(SYMBOL);
+  public List<FutilIdentifier> getIdentifierList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, FutilIdentifier.class);
   }
 
 }

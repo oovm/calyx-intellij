@@ -45,40 +45,4 @@ public class FutilTableNode extends ASTWrapperPsiElement implements FutilTable {
     return PsiTreeUtil.getChildrenOfTypeAsList(this, FutilValue.class);
   }
 
-  @Override
-  @Nullable
-  public PsiElement getBraceL() {
-    return findChildByType(BRACE_L);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getBraceR() {
-    return findChildByType(BRACE_R);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getBracketL() {
-    return findChildByType(BRACKET_L);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getBracketR() {
-    return findChildByType(BRACKET_R);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getParenthesisL() {
-    return findChildByType(PARENTHESIS_L);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getParenthesisR() {
-    return findChildByType(PARENTHESIS_R);
-  }
-
 }

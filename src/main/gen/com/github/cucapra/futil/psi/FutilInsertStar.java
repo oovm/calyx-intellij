@@ -7,7 +7,4 @@ import com.intellij.psi.PsiElement;
 
 public interface FutilInsertStar extends PsiElement {
 
-  @NotNull
-  PsiElement getStar();
-
 }

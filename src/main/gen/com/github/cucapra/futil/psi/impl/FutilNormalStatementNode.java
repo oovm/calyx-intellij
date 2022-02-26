@@ -11,26 +11,20 @@ import static com.github.cucapra.futil.psi.FutilTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.cucapra.futil.psi.*;
 
-public class FutilGroupStatementNode extends ASTWrapperPsiElement implements FutilGroupStatement {
+public class FutilNormalStatementNode extends ASTWrapperPsiElement implements FutilNormalStatement {
 
-  public FutilGroupStatementNode(@NotNull ASTNode node) {
+  public FutilNormalStatementNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull FutilVisitor visitor) {
-    visitor.visitGroupStatement(this);
+    visitor.visitNormalStatement(this);
   }
 
   @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof FutilVisitor) accept((FutilVisitor)visitor);
     else super.accept(visitor);
-  }
-
-  @Override
-  @NotNull
-  public FutilGroup getGroup() {
-    return findNotNullChildByClass(FutilGroup.class);
   }
 
   @Override

@@ -13,10 +13,4 @@ public interface FutilPair extends PsiElement {
   @NotNull
   FutilValue getValue();
 
-  @Nullable
-  PsiElement getColon();
-
-  @Nullable
-  PsiElement getEq();
-
 }

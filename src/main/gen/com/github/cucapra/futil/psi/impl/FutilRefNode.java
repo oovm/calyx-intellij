@@ -33,10 +33,4 @@ public class FutilRefNode extends ASTWrapperPsiElement implements FutilRef {
     return findNotNullChildByClass(FutilSymbolPath.class);
   }
 
-  @Override
-  @NotNull
-  public PsiElement getCite() {
-    return findNotNullChildByType(CITE);
-  }
-
 }

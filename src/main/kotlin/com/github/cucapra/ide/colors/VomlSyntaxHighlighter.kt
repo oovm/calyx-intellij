@@ -20,7 +20,7 @@ class VomlSyntaxHighlighter : SyntaxHighlighterBase() {
     private fun getTokenColor(tokenType: IElementType): VomlColor? {
         return when (tokenType) {
             //
-            IMPORT, INHERIT, AS -> VomlColor.KEYWORD
+            IMPORT, AS -> VomlColor.KEYWORD
             ANNOTATION, ANNOTATION_MARK -> VomlColor.ANNOTATION
             //
             STRING_PREFIX -> VomlColor.STRING_HINT

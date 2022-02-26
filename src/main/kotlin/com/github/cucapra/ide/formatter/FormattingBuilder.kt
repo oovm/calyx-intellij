@@ -3,10 +3,11 @@ package com.github.cucapra.ide.formatter
 import com.intellij.formatting.*
 import com.intellij.lang.ASTNode
 import com.intellij.openapi.util.TextRange
+import com.intellij.psi.PsiFile
 
-class VomlFormattingModelBuilder : FormattingModelBuilder {
+class FormattingBuilder : FormattingModelBuilder {
     override fun getRangeAffectingIndent(
-        file: com.intellij.psi.PsiFile?,
+        file: PsiFile?,
         offset: Int,
         elementAtOffset: ASTNode?
     ): TextRange? = null
@@ -16,7 +17,7 @@ class VomlFormattingModelBuilder : FormattingModelBuilder {
     ): FormattingModel {
         val settings = formattingContext.codeStyleSettings
         val element = formattingContext.psiElement
-        val ctx = VomlFormatterContext.create(settings)
+        val ctx = FormatterContext.create(settings)
         val block = createBlock(element.node, null, Indent.getNoneIndent(), null, ctx)
         return FormattingModelProvider.createFormattingModelForPsiFile(element.containingFile, block, settings)
     }
@@ -27,7 +28,9 @@ class VomlFormattingModelBuilder : FormattingModelBuilder {
             alignment: Alignment?,
             indent: Indent?,
             wrap: Wrap?,
-            ctx: VomlFormatterContext
-        ): ASTBlock = VomlAstBlock(node, alignment, indent, wrap, ctx)
+            ctx: FormatterContext
+        ): ASTBlock {
+            return FormatterBlock(node, alignment, indent, wrap, ctx)
+        }
     }
 }

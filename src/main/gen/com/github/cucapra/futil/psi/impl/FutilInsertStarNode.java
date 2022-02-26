@@ -27,10 +27,4 @@ public class FutilInsertStarNode extends ASTWrapperPsiElement implements FutilIn
     else super.accept(visitor);
   }
 
-  @Override
-  @NotNull
-  public PsiElement getStar() {
-    return findNotNullChildByType(STAR);
-  }
-
 }

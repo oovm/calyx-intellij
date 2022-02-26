@@ -16,22 +16,4 @@ public interface FutilTable extends PsiElement {
   @NotNull
   List<FutilValue> getValueList();
 
-  @Nullable
-  PsiElement getBraceL();
-
-  @Nullable
-  PsiElement getBraceR();
-
-  @Nullable
-  PsiElement getBracketL();
-
-  @Nullable
-  PsiElement getBracketR();
-
-  @Nullable
-  PsiElement getParenthesisL();
-
-  @Nullable
-  PsiElement getParenthesisR();
-
 }

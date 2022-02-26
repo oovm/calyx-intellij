@@ -89,20 +89,8 @@ public class FutilValueNode extends ASTWrapperPsiElement implements FutilValue {
 
   @Override
   @Nullable
-  public PsiElement getDecimalBad() {
-    return findChildByType(DECIMAL_BAD);
-  }
-
-  @Override
-  @Nullable
   public PsiElement getInteger() {
     return findChildByType(INTEGER);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getNull() {
-    return findChildByType(NULL);
   }
 
   @Override

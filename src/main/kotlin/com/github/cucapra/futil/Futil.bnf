@@ -14,17 +14,12 @@
     tokenTypeClass = "com.github.cucapra.futil.psi.FutilElementType"
 
     psiImplUtilClass = "com.github.cucapra.futil.psi.FutilASTExtension"
-    generateTokenAccessors = true
+    // generateTokenAccessors = true
     tokens = [
         COMMENT = 'regexp:(//|#)[^\r\n]*'
         BLOCK_COMMENT = 'regexp:[/][*][^*]*[*]+([^/*][^*]*[*]+)*[/]'
 
-        IMPORT = 'import'
-        INHERIT = '@inherit'
-        IMPORT = '@import'
-        EXPORT = '@export'
         AS = "as"
-
         NULL = 'null'
         BOOLEAN = 'regexp:true|false'
 
@@ -50,7 +45,6 @@
         ESCAPE = '\'
         NON_ESCAPE = 'regexp:[^\\]'
         EQ = '='
-        NAN = "nan"
         COLON = ':'
         SEMICOLON = ';'
         COMMA = ','
@@ -63,11 +57,12 @@
     ]
 }
 
-Futil ::= statements*;
-statements ::=
+Futil ::= statement*;
+private statement ::=
     import_statement
   | component_statement
   | group_statement
+  | normal_statement
   | SEMICOLON
   ;
 // ---------------------------------------------------------------------------------------------------------------------
@@ -76,19 +71,12 @@ IMPORT ::= "import"
 // ---------------------------------------------------------------------------------------------------------------------
 component_statement ::= COMPONENT insert_dot string_inline;
 COMPONENT ::= "component"
-// ------------------------------------
-group_statement ::= GROUP identifier;
+// ---------------------------------------------------------------------------------------------------------------------
+group_statement ::= GROUP identifier <<brackets statement SEMICOLON>>;
 GROUP  ::= "group";
-
-// ------------------------------------
-scope ::= <<paired scope_inner>>;
-private scope_inner ::=
-    [ACCENT|ANGLE_R|ANGLE_L+] scope_path
-  | ANGLE_L+ [scope_path];
-private scope_path  ::= scope_key (DOT scope_key)*
-private scope_key   ::= string_inline | scope_symbol | INTEGER;
-scope_symbol ::= SYMBOL;
-// ------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+normal_statement ::= identifier <<brackets statement SEMICOLON>>;
+// ---------------------------------------------------------------------------------------------------------------------
 pair ::= symbol_path eq value;
 symbol_path ::= key (DOT key)*;
 private key ::= string_inline | key_symbol | INTEGER;
@@ -98,32 +86,36 @@ insert_item ::= insert_star value;
 insert_dot ::= DOT;
 insert_star ::= STAR;
 key_symbol ::= SYMBOL;
-// ------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
 value ::= NULL | BOOLEAN | num | ref | str | table | annotation;
 type_hint ::= SYMBOL;
 string_prefix ::= SYMBOL;
 number_suffix ::= SYMBOL;
-// ------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
 private num ::= [SIGN] (INTEGER | DECIMAL | DECIMAL_BAD) [number_suffix] | [SIGN] BYTE;
-// ------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
 private str ::= [string_prefix] (string_inline|string_multi);
 string_inline ::= STRING;
 string_multi ::= QUOTATION char* QUOTATION;
 private char ::= escaped | NON_ESCAPE;
 escaped ::= ESCAPE (ESCAPE|NON_ESCAPE);
-// ------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
 ref ::= CITE symbol_path;
-// ------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
 annotation ::= annotation_mark <<paired anno_inner>>;
 annotation_mark ::= AT SYMBOL;
 private anno_inner ::= [anno_item (COMMA anno_item)* [COMMA]];
 private anno_item  ::= key_symbol EQ anno_value | anno_value;
 private anno_value ::= value | identi;
-// ------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
 table ::= [type_hint] <<paired table_inner>>;
 private table_inner ::= [table_item ([COMMA] table_item)* [COMMA]];
 private table_item ::= pair | value;
-// ------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+namesapce ::= identifier (DOT identifier)*;
+identifier ::= SYMBOL
+// ---------------------------------------------------------------------------------------------------------------------
+meta brackets ::= BRACKET_L <<param>> (<<sep>> <<param>>)* BRACKET_R;
 private meta paired ::=
     PARENTHESIS_L <<param>> PARENTHESIS_R
   | BRACKET_L <<param>> BRACKET_R

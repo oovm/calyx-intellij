@@ -74,7 +74,7 @@ Intellij plugin for [VOML](https://github.com/voml), support all IDEs.
         />
         <lang.formatter
             language="VOML"
-            implementationClass="com.github.cucapra.ide.formatter.VomlFormattingModelBuilder"
+            implementationClass="com.github.cucapra.ide.formatter.FormattingBuilder"
         />
         <lang.smartEnterProcessor
             language="VOML"
