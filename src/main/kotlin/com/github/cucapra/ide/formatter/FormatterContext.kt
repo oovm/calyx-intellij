@@ -13,7 +13,7 @@ data class FormatterContext(val commonSettings: CommonCodeStyleSettings, val spa
             return FormatterContext(commonSettings, createSpacingBuilder(commonSettings))
         }
 
-        fun createSpacingBuilder(commonSettings: CommonCodeStyleSettings): SpacingBuilder =
+        private fun createSpacingBuilder(commonSettings: CommonCodeStyleSettings): SpacingBuilder =
             SpacingBuilder(commonSettings)
                 // ,
                 .after(FutilTypes.COMMA).spacing(1, 1, 0, true, 0)
