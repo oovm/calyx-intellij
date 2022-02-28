@@ -11,14 +11,14 @@ import static com.github.cucapra.futil.psi.FutilTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.cucapra.futil.psi.*;
 
-public class FutilBracketsNode extends ASTWrapperPsiElement implements FutilBrackets {
+public class FutilBracketNode extends ASTWrapperPsiElement implements FutilBracket {
 
-  public FutilBracketsNode(@NotNull ASTNode node) {
+  public FutilBracketNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull FutilVisitor visitor) {
-    visitor.visitBrackets(this);
+    visitor.visitBracket(this);
   }
 
   @Override

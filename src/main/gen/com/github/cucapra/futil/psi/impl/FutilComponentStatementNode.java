@@ -35,14 +35,20 @@ public class FutilComponentStatementNode extends ASTWrapperPsiElement implements
 
   @Override
   @NotNull
-  public FutilInsertDot getInsertDot() {
-    return findNotNullChildByClass(FutilInsertDot.class);
+  public FutilBracket getBracket() {
+    return findNotNullChildByClass(FutilBracket.class);
   }
 
   @Override
   @NotNull
-  public FutilStringInline getStringInline() {
-    return findNotNullChildByClass(FutilStringInline.class);
+  public FutilComponentName getComponentName() {
+    return findNotNullChildByClass(FutilComponentName.class);
+  }
+
+  @Override
+  @NotNull
+  public FutilComponentTarget getComponentTarget() {
+    return findNotNullChildByClass(FutilComponentTarget.class);
   }
 
 }

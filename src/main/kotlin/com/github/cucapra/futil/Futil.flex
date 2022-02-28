@@ -46,9 +46,9 @@ NON_ESCAPE=[^\\]
     "]"                  { return BRACKET_R; }
     "{"                  { return BRACE_L; }
     "}"                  { return BRACE_R; }
-    "^"                  { return ACCENT; }
     "<"                  { return ANGLE_L; }
     ">"                  { return ANGLE_R; }
+    "^"                  { return ACCENT; }
     "\""                 { return QUOTATION; }
     "\\"                 { return ESCAPE; }
     "="                  { return EQ; }
@@ -59,7 +59,7 @@ NON_ESCAPE=[^\\]
     "."                  { return DOT; }
     "*"                  { return STAR; }
     "@"                  { return AT; }
-
+    "->"                 { return TO; }
     {COMMENT}            { return COMMENT; }
     {BLOCK_COMMENT}      { return BLOCK_COMMENT; }
     {BOOLEAN}            { return BOOLEAN; }

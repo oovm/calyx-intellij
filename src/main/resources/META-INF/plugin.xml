@@ -18,38 +18,38 @@ Intellij plugin for [VOML](https://github.com/voml), support all IDEs.
     <resource-bundle>messages.CalyxBundle</resource-bundle>
     <extensions defaultExtensionNs="com.intellij">
         <fileType
-            name="VOML"
-            implementationClass="com.github.cucapra.futil.file.FutilFileType"
+            name="futil"
+            language="futil"
+            extensions="futil"
             fieldName="INSTANCE"
-            language="VOML"
-            extensions="voml"
+            implementationClass="com.github.cucapra.futil.file.FutilFileType"
         />
         <lang.parserDefinition
-            language="VOML"
+            language="futil"
             implementationClass="com.github.cucapra.futil.psi.FutilParserDefinition"
         />
         <!-- Highlight -->
         <colorSettingsPage implementation="com.github.cucapra.ide.colors.VomlColorSettingsPage"/>
         <highlightVisitor implementation="com.github.cucapra.ide.colors.FutilHighlightVisitor"/>
         <lang.syntaxHighlighter
-            language="VOML"
+            language="futil"
             implementationClass="com.github.cucapra.ide.colors.VomlSyntaxHighlighter"
         />
         <!-- commenter -->
         <lang.commenter
-            language="VOML"
+            language="futil"
             implementationClass="com.github.cucapra.ide.VomlCommenter"
         />
         <lang.braceMatcher
-            language="VOML"
+            language="futil"
             implementationClass="com.github.cucapra.ide.braces.VomlBraceMatcher"
         />
         <lang.quoteHandler
-            language="VOML"
+            language="futil"
             implementationClass="com.github.cucapra.ide.FutilQuoteHandler"
         />
         <lang.foldingBuilder
-            language="VOML"
+            language="futil"
             implementationClass="com.github.cucapra.ide.folding.FutilFoldingBuilder"
         />
         <indexPatternBuilder
@@ -60,11 +60,11 @@ Intellij plugin for [VOML](https://github.com/voml), support all IDEs.
             implementationClass="com.github.cucapra.ide.todo.VomlTodoIndexer"
         />
         <completion.contributor
-            language="VOML"
+            language="futil"
             implementationClass="com.github.cucapra.ide.completion.CompletionContributor"
         />
         <annotator
-            language="VOML"
+            language="futil"
             implementationClass="com.github.cucapra.ide.annotator.VomlStringEscapingAnnotator"
         />
         <additionalTextAttributes scheme="Default" file="colors/VomlDefault.xml"/>
@@ -73,15 +73,14 @@ Intellij plugin for [VOML](https://github.com/voml), support all IDEs.
             implementation="com.github.cucapra.ide.codeStyle.FutilLanguageCodeStyleSettings"
         />
         <lang.formatter
-            language="VOML"
+            language="futil"
             implementationClass="com.github.cucapra.ide.formatter.FormattingBuilder"
         />
         <lang.smartEnterProcessor
-            language="VOML"
+            language="futil"
             implementationClass="com.github.cucapra.ide.assist.fixers.VomlSmartEnterProcessor"
         />
         <!-- languages -->
-        <languageBundle locale="zh"/>
     </extensions>
     <actions>
         <action id="com.github.cucapra.ide.actions.VomlCreateFile"

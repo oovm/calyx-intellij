@@ -10,9 +10,11 @@ public interface FutilTypes {
 
   IElementType ANNOTATION = new FutilElementType("ANNOTATION");
   IElementType ANNOTATION_MARK = new FutilElementType("ANNOTATION_MARK");
-  IElementType BRACKETS = new FutilElementType("BRACKETS");
+  IElementType BRACKET = new FutilElementType("BRACKET");
   IElementType COMPONENT = new FutilElementType("COMPONENT");
+  IElementType COMPONENT_NAME = new FutilElementType("COMPONENT_NAME");
   IElementType COMPONENT_STATEMENT = new FutilElementType("COMPONENT_STATEMENT");
+  IElementType COMPONENT_TARGET = new FutilElementType("COMPONENT_TARGET");
   IElementType ESCAPED = new FutilElementType("ESCAPED");
   IElementType GROUP = new FutilElementType("GROUP");
   IElementType GROUP_STATEMENT = new FutilElementType("GROUP_STATEMENT");
@@ -28,6 +30,7 @@ public interface FutilTypes {
   IElementType NORMAL_STATEMENT = new FutilElementType("NORMAL_STATEMENT");
   IElementType NUMBER_SUFFIX = new FutilElementType("NUMBER_SUFFIX");
   IElementType PAIR = new FutilElementType("PAIR");
+  IElementType PARENTHESIS = new FutilElementType("PARENTHESIS");
   IElementType REF = new FutilElementType("REF");
   IElementType STRING_INLINE = new FutilElementType("STRING_INLINE");
   IElementType STRING_MULTI = new FutilElementType("STRING_MULTI");
@@ -71,6 +74,7 @@ public interface FutilTypes {
   IElementType STAR = new FutilElementType("*");
   IElementType STRING = new FutilElementType("STRING");
   IElementType SYMBOL = new FutilElementType("SYMBOL");
+  IElementType TO = new FutilElementType("TO");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
@@ -81,14 +85,20 @@ public interface FutilTypes {
       else if (type == ANNOTATION_MARK) {
         return new FutilAnnotationMarkNode(node);
       }
-      else if (type == BRACKETS) {
-        return new FutilBracketsNode(node);
+      else if (type == BRACKET) {
+        return new FutilBracketNode(node);
       }
       else if (type == COMPONENT) {
         return new FutilComponentNode(node);
       }
+      else if (type == COMPONENT_NAME) {
+        return new FutilComponentNameNode(node);
+      }
       else if (type == COMPONENT_STATEMENT) {
         return new FutilComponentStatementNode(node);
+      }
+      else if (type == COMPONENT_TARGET) {
+        return new FutilComponentTargetNode(node);
       }
       else if (type == ESCAPED) {
         return new FutilEscapedNode(node);
@@ -134,6 +144,9 @@ public interface FutilTypes {
       }
       else if (type == PAIR) {
         return new FutilPairNode(node);
+      }
+      else if (type == PARENTHESIS) {
+        return new FutilParenthesisNode(node);
       }
       else if (type == REF) {
         return new FutilRefNode(node);

@@ -27,11 +27,19 @@ public class FutilVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitBrackets(@NotNull FutilBrackets o) {
+  public void visitBracket(@NotNull FutilBracket o) {
+    visitPsiElement(o);
+  }
+
+  public void visitComponentName(@NotNull FutilComponentName o) {
     visitPsiElement(o);
   }
 
   public void visitComponentStatement(@NotNull FutilComponentStatement o) {
+    visitPsiElement(o);
+  }
+
+  public void visitComponentTarget(@NotNull FutilComponentTarget o) {
     visitPsiElement(o);
   }
 
@@ -84,6 +92,10 @@ public class FutilVisitor extends PsiElementVisitor {
   }
 
   public void visitPair(@NotNull FutilPair o) {
+    visitPsiElement(o);
+  }
+
+  public void visitParenthesis(@NotNull FutilParenthesis o) {
     visitPsiElement(o);
   }
 

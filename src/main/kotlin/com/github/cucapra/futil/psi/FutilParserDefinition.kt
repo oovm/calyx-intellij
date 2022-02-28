@@ -23,7 +23,7 @@ object FutilParserDefinition : ParserDefinition {
 
     override fun getFileNodeType(): IFileElementType = IFileElementType(FutilLanguage)
 
-    override fun getCommentTokens(): TokenSet = TokenSet.create()
+    override fun getCommentTokens(): TokenSet = TokenSet.create(FutilTypes.COMMENT, FutilTypes.BLOCK_COMMENT)
 
     override fun getStringLiteralElements(): TokenSet = TokenSet.create()
 

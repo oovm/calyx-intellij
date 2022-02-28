@@ -11,9 +11,12 @@ public interface FutilComponentStatement extends PsiElement {
   FutilComponent getComponent();
 
   @NotNull
-  FutilInsertDot getInsertDot();
+  FutilBracket getBracket();
 
   @NotNull
-  FutilStringInline getStringInline();
+  FutilComponentName getComponentName();
+
+  @NotNull
+  FutilComponentTarget getComponentTarget();
 
 }

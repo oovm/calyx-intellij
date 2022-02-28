@@ -11,7 +11,7 @@ public interface FutilGroupStatement extends PsiElement {
   FutilGroup getGroup();
 
   @NotNull
-  FutilBrackets getBrackets();
+  FutilBracket getBracket();
 
   @NotNull
   FutilIdentifier getIdentifier();
