@@ -10,10 +10,4 @@ public interface FutilAnnotation extends PsiElement {
   @NotNull
   FutilAnnotationMark getAnnotationMark();
 
-  @NotNull
-  List<FutilKeySymbol> getKeySymbolList();
-
-  @NotNull
-  List<FutilValue> getValueList();
-
 }

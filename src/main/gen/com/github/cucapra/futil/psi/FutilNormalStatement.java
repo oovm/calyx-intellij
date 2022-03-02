@@ -8,7 +8,7 @@ import com.intellij.psi.PsiElement;
 public interface FutilNormalStatement extends PsiElement {
 
   @NotNull
-  FutilBracket getBracket();
+  FutilBrace getBrace();
 
   @NotNull
   FutilIdentifier getIdentifier();

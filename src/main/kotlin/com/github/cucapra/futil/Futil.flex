@@ -24,11 +24,11 @@ public _FutilLexer() {
 
 EOL=\R
 WHITE_SPACE=\s+
-
 COMMENT=("//"|#)[^\r\n]*
 BLOCK_COMMENT=[/][*][^*]*[*]+([^/*][^*]*[*]+)*[/]
 BOOLEAN=true|false
 SYMBOL=[\p{XID_Start}_][\p{XID_Continue}_]*
+ANNOTATION=@{SYMBOL}
 STRING=\"([^\"\\]|\\.)*\"
 BYTE=(0[bBoOxXfF][0-9A-Fa-f][0-9A-Fa-f_]*)
 INTEGER=(0|[1-9][0-9_]*)
@@ -40,6 +40,19 @@ NON_ESCAPE=[^\\]
 %%
 <YYINITIAL> {
     {WHITE_SPACE}        { return WHITE_SPACE; }
+    {COMMENT}            { return COMMENT; }
+    {BLOCK_COMMENT}      { return BLOCK_COMMENT; }
+    {BOOLEAN}            { return BOOLEAN; }
+    {SYMBOL}             { return SYMBOL; }
+    {STRING}             { return STRING; }
+    {BYTE}               { return BYTE; }
+    {INTEGER}            { return INTEGER; }
+    {DECIMAL}            { return DECIMAL; }
+    {SIGN}               { return SIGN; }
+    {BACK_TOP}           { return BACK_TOP; }
+    {NON_ESCAPE}         { return NON_ESCAPE; }
+}
+<YYINITIAL> {
     "("                  { return PARENTHESIS_L; }
     ")"                  { return PARENTHESIS_R; }
     "["                  { return BRACKET_L; }
@@ -60,17 +73,6 @@ NON_ESCAPE=[^\\]
     "*"                  { return STAR; }
     "@"                  { return AT; }
     "->"                 { return TO; }
-    {COMMENT}            { return COMMENT; }
-    {BLOCK_COMMENT}      { return BLOCK_COMMENT; }
-    {BOOLEAN}            { return BOOLEAN; }
-    {SYMBOL}             { return SYMBOL; }
-    {STRING}             { return STRING; }
-    {BYTE}               { return BYTE; }
-    {INTEGER}            { return INTEGER; }
-    {DECIMAL}            { return DECIMAL; }
-    {SIGN}               { return SIGN; }
-    {BACK_TOP}           { return BACK_TOP; }
-    {NON_ESCAPE}         { return NON_ESCAPE; }
 }
 
 [^] { return BAD_CHARACTER; }

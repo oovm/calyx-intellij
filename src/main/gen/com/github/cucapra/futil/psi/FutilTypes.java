@@ -8,8 +8,10 @@ import com.github.cucapra.futil.psi.impl.*;
 
 public interface FutilTypes {
 
+  IElementType ANGLE = new FutilElementType("ANGLE");
   IElementType ANNOTATION = new FutilElementType("ANNOTATION");
   IElementType ANNOTATION_MARK = new FutilElementType("ANNOTATION_MARK");
+  IElementType BRACE = new FutilElementType("BRACE");
   IElementType BRACKET = new FutilElementType("BRACKET");
   IElementType COMPONENT = new FutilElementType("COMPONENT");
   IElementType COMPONENT_NAME = new FutilElementType("COMPONENT_NAME");
@@ -79,11 +81,17 @@ public interface FutilTypes {
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-      if (type == ANNOTATION) {
+      if (type == ANGLE) {
+        return new FutilAngleNode(node);
+      }
+      else if (type == ANNOTATION) {
         return new FutilAnnotationNode(node);
       }
       else if (type == ANNOTATION_MARK) {
         return new FutilAnnotationMarkNode(node);
+      }
+      else if (type == BRACE) {
+        return new FutilBraceNode(node);
       }
       else if (type == BRACKET) {
         return new FutilBracketNode(node);

@@ -19,11 +19,19 @@ public class FutilVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitAngle(@NotNull FutilAngle o) {
+    visitPsiElement(o);
+  }
+
   public void visitAnnotation(@NotNull FutilAnnotation o) {
     visitPsiElement(o);
   }
 
   public void visitAnnotationMark(@NotNull FutilAnnotationMark o) {
+    visitPsiElement(o);
+  }
+
+  public void visitBrace(@NotNull FutilBrace o) {
     visitPsiElement(o);
   }
 

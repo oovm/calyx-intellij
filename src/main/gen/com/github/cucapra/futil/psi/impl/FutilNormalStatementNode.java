@@ -29,8 +29,8 @@ public class FutilNormalStatementNode extends ASTWrapperPsiElement implements Fu
 
   @Override
   @NotNull
-  public FutilBracket getBracket() {
-    return findNotNullChildByClass(FutilBracket.class);
+  public FutilBrace getBrace() {
+    return findNotNullChildByClass(FutilBrace.class);
   }
 
   @Override

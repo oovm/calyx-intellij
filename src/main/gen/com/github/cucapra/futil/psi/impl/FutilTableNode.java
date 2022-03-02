@@ -28,21 +28,9 @@ public class FutilTableNode extends ASTWrapperPsiElement implements FutilTable {
   }
 
   @Override
-  @NotNull
-  public List<FutilPair> getPairList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, FutilPair.class);
-  }
-
-  @Override
   @Nullable
   public FutilTypeHint getTypeHint() {
     return findChildByClass(FutilTypeHint.class);
-  }
-
-  @Override
-  @NotNull
-  public List<FutilValue> getValueList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, FutilValue.class);
   }
 
 }

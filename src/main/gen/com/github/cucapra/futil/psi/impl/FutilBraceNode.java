@@ -11,26 +11,20 @@ import static com.github.cucapra.futil.psi.FutilTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.cucapra.futil.psi.*;
 
-public class FutilAnnotationNode extends ASTWrapperPsiElement implements FutilAnnotation {
+public class FutilBraceNode extends ASTWrapperPsiElement implements FutilBrace {
 
-  public FutilAnnotationNode(@NotNull ASTNode node) {
+  public FutilBraceNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull FutilVisitor visitor) {
-    visitor.visitAnnotation(this);
+    visitor.visitBrace(this);
   }
 
   @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof FutilVisitor) accept((FutilVisitor)visitor);
     else super.accept(visitor);
-  }
-
-  @Override
-  @NotNull
-  public FutilAnnotationMark getAnnotationMark() {
-    return findNotNullChildByClass(FutilAnnotationMark.class);
   }
 
 }

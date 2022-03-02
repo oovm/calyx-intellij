@@ -63,6 +63,7 @@ private statement ::=
   | component_statement
   | group_statement
   | normal_statement
+  | annotation
   | SEMICOLON
   ;
 // ---------------------------------------------------------------------------------------------------------------------

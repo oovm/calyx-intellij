@@ -11,7 +11,7 @@ public interface FutilComponentStatement extends PsiElement {
   FutilComponent getComponent();
 
   @NotNull
-  FutilBracket getBracket();
+  FutilBrace getBrace();
 
   @NotNull
   FutilComponentName getComponentName();
