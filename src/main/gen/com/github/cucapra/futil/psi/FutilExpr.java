@@ -5,12 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface FutilInsertPair extends PsiElement {
-
-  @Nullable
-  FutilInsertDot getInsertDot();
+public interface FutilExpr extends PsiElement {
 
   @NotNull
-  FutilPair getPair();
+  FutilValue getValue();
 
 }

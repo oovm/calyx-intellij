@@ -11,14 +11,14 @@ import static com.github.cucapra.futil.psi.FutilTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.cucapra.futil.psi.*;
 
-public class FutilSymbolPathNode extends ASTWrapperPsiElement implements FutilSymbolPath {
+public class FutilExpressionNode extends ASTWrapperPsiElement implements FutilExpression {
 
-  public FutilSymbolPathNode(@NotNull ASTNode node) {
+  public FutilExpressionNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull FutilVisitor visitor) {
-    visitor.visitSymbolPath(this);
+    visitor.visitExpression(this);
   }
 
   @Override
@@ -29,14 +29,14 @@ public class FutilSymbolPathNode extends ASTWrapperPsiElement implements FutilSy
 
   @Override
   @NotNull
-  public List<FutilKeySymbol> getKeySymbolList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, FutilKeySymbol.class);
+  public FutilExpr getExpr() {
+    return findNotNullChildByClass(FutilExpr.class);
   }
 
   @Override
   @NotNull
-  public List<FutilStringInline> getStringInlineList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, FutilStringInline.class);
+  public FutilNamesapce getNamesapce() {
+    return findNotNullChildByClass(FutilNamesapce.class);
   }
 
 }

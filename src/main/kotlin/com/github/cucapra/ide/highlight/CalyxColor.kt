@@ -1,4 +1,4 @@
-package com.github.cucapra.ide.colors
+package com.github.cucapra.ide.highlight
 
 import com.github.cucapra.ide.CalyxBundle
 import com.intellij.lang.annotation.HighlightSeverity
@@ -6,14 +6,18 @@ import com.intellij.openapi.editor.HighlighterColors
 import com.intellij.openapi.editor.colors.TextAttributesKey
 import com.intellij.openapi.options.OptionsBundle
 import com.intellij.openapi.options.colors.AttributesDescriptor
-import com.intellij.openapi.util.NlsContexts
+import com.intellij.openapi.util.NlsContexts.AttributeDescriptor
 import java.util.function.Supplier
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors as Default
 
 
-enum class VomlColor(humanName: Supplier<@NlsContexts.AttributeDescriptor String>, default: TextAttributesKey? = null) {
+@Suppress("UnstableApiUsage")
+enum class CalyxColor(humanName: Supplier<@AttributeDescriptor String>, default: TextAttributesKey? = null) {
     // 特殊关键词
     KEYWORD(CalyxBundle.messagePointer("color.settings.voml.keyword"), Default.KEYWORD),
+    SYM_ANNOTATION(CalyxBundle.messagePointer("color.token.annotation"), Default.METADATA),
+    SYM_VARIABLE(CalyxBundle.messagePointer("color.token.variable"), KEYWORD.textAttributesKey),
+    SYM_GROUP(CalyxBundle.messagePointer("color.token.group"), KEYWORD.textAttributesKey),
     // 字面量
     NULL(CalyxBundle.messagePointer("color.settings.voml.null"), Default.KEYWORD),
     BOOLEAN(CalyxBundle.messagePointer("color.settings.voml.boolean"), Default.KEYWORD),
@@ -26,8 +30,7 @@ enum class VomlColor(humanName: Supplier<@NlsContexts.AttributeDescriptor String
     //
     TYPE_HINT(CalyxBundle.messagePointer("color.settings.voml.type_hint"), Default.CLASS_NAME),
     KEY_SYMBOL(CalyxBundle.messagePointer("color.settings.voml.key_symbol"), Default.STATIC_FIELD),
-    SCOPE_SYMBOL(CalyxBundle.messagePointer("color.settings.voml.scope_symbol"), Default.STATIC_METHOD),
-    SCOPE_MARK(CalyxBundle.messagePointer("color.settings.voml.scope_mark"), KEYWORD.textAttributesKey),
+
     INSERT_MARK(CalyxBundle.messagePointer("color.settings.voml.insert_mark"), KEYWORD.textAttributesKey),
     ANNOTATION(OptionsBundle.messagePointer("options.java.attribute.descriptor.annotation.name"), Default.METADATA),
     // 元数据

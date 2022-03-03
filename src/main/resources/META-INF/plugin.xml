@@ -29,11 +29,11 @@ Intellij plugin for [VOML](https://github.com/voml), support all IDEs.
             implementationClass="com.github.cucapra.futil.psi.FutilParserDefinition"
         />
         <!-- Highlight -->
-        <colorSettingsPage implementation="com.github.cucapra.ide.colors.VomlColorSettingsPage"/>
-        <highlightVisitor implementation="com.github.cucapra.ide.colors.FutilHighlightVisitor"/>
+        <colorSettingsPage implementation="com.github.cucapra.ide.highlight.ColorSettingsPage"/>
+        <highlightVisitor implementation="com.github.cucapra.ide.highlight.NodeHighlighter"/>
         <lang.syntaxHighlighter
             language="futil"
-            implementationClass="com.github.cucapra.ide.colors.VomlSyntaxHighlighter"
+            implementationClass="com.github.cucapra.ide.highlight.TokenHighlighter"
         />
         <!-- commenter -->
         <lang.commenter

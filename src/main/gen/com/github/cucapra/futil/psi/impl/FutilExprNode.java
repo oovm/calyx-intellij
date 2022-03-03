@@ -11,14 +11,14 @@ import static com.github.cucapra.futil.psi.FutilTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.cucapra.futil.psi.*;
 
-public class FutilStringPrefixNode extends ASTWrapperPsiElement implements FutilStringPrefix {
+public class FutilExprNode extends ASTWrapperPsiElement implements FutilExpr {
 
-  public FutilStringPrefixNode(@NotNull ASTNode node) {
+  public FutilExprNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull FutilVisitor visitor) {
-    visitor.visitStringPrefix(this);
+    visitor.visitExpr(this);
   }
 
   @Override
@@ -29,8 +29,8 @@ public class FutilStringPrefixNode extends ASTWrapperPsiElement implements Futil
 
   @Override
   @NotNull
-  public PsiElement getSymbol() {
-    return findNotNullChildByType(SYMBOL);
+  public FutilValue getValue() {
+    return findNotNullChildByClass(FutilValue.class);
   }
 
 }

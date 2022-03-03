@@ -27,10 +27,4 @@ public class FutilRefNode extends ASTWrapperPsiElement implements FutilRef {
     else super.accept(visitor);
   }
 
-  @Override
-  @NotNull
-  public FutilSymbolPath getSymbolPath() {
-    return findNotNullChildByClass(FutilSymbolPath.class);
-  }
-
 }

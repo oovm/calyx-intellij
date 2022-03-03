@@ -55,6 +55,14 @@ public class FutilVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitExpr(@NotNull FutilExpr o) {
+    visitPsiElement(o);
+  }
+
+  public void visitExpression(@NotNull FutilExpression o) {
+    visitPsiElement(o);
+  }
+
   public void visitGroupStatement(@NotNull FutilGroupStatement o) {
     visitPsiElement(o);
   }
@@ -67,39 +75,11 @@ public class FutilVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitInsertDot(@NotNull FutilInsertDot o) {
-    visitPsiElement(o);
-  }
-
-  public void visitInsertItem(@NotNull FutilInsertItem o) {
-    visitPsiElement(o);
-  }
-
-  public void visitInsertPair(@NotNull FutilInsertPair o) {
-    visitPsiElement(o);
-  }
-
-  public void visitInsertStar(@NotNull FutilInsertStar o) {
-    visitPsiElement(o);
-  }
-
-  public void visitKeySymbol(@NotNull FutilKeySymbol o) {
-    visitPsiElement(o);
-  }
-
   public void visitNamesapce(@NotNull FutilNamesapce o) {
     visitPsiElement(o);
   }
 
   public void visitNormalStatement(@NotNull FutilNormalStatement o) {
-    visitPsiElement(o);
-  }
-
-  public void visitNumberSuffix(@NotNull FutilNumberSuffix o) {
-    visitPsiElement(o);
-  }
-
-  public void visitPair(@NotNull FutilPair o) {
     visitPsiElement(o);
   }
 
@@ -119,19 +99,7 @@ public class FutilVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitStringPrefix(@NotNull FutilStringPrefix o) {
-    visitPsiElement(o);
-  }
-
-  public void visitSymbolPath(@NotNull FutilSymbolPath o) {
-    visitPsiElement(o);
-  }
-
   public void visitTable(@NotNull FutilTable o) {
-    visitPsiElement(o);
-  }
-
-  public void visitTypeHint(@NotNull FutilTypeHint o) {
     visitPsiElement(o);
   }
 

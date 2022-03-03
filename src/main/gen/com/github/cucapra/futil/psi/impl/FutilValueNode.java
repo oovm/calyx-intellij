@@ -29,74 +29,8 @@ public class FutilValueNode extends ASTWrapperPsiElement implements FutilValue {
 
   @Override
   @Nullable
-  public FutilAnnotation getAnnotation() {
-    return findChildByClass(FutilAnnotation.class);
-  }
-
-  @Override
-  @Nullable
-  public FutilNumberSuffix getNumberSuffix() {
-    return findChildByClass(FutilNumberSuffix.class);
-  }
-
-  @Override
-  @Nullable
-  public FutilRef getRef() {
-    return findChildByClass(FutilRef.class);
-  }
-
-  @Override
-  @Nullable
-  public FutilStringInline getStringInline() {
-    return findChildByClass(FutilStringInline.class);
-  }
-
-  @Override
-  @Nullable
-  public FutilStringMulti getStringMulti() {
-    return findChildByClass(FutilStringMulti.class);
-  }
-
-  @Override
-  @Nullable
-  public FutilStringPrefix getStringPrefix() {
-    return findChildByClass(FutilStringPrefix.class);
-  }
-
-  @Override
-  @Nullable
-  public FutilTable getTable() {
-    return findChildByClass(FutilTable.class);
-  }
-
-  @Override
-  @Nullable
   public PsiElement getBoolean() {
     return findChildByType(BOOLEAN);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getByte() {
-    return findChildByType(BYTE);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getDecimal() {
-    return findChildByType(DECIMAL);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getInteger() {
-    return findChildByType(INTEGER);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getSign() {
-    return findChildByType(SIGN);
   }
 
 }

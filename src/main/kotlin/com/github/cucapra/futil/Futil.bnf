@@ -64,6 +64,7 @@ private statement ::=
   | group_statement
   | normal_statement
   | annotation
+  | expression
   | SEMICOLON
   ;
 // ---------------------------------------------------------------------------------------------------------------------
@@ -80,20 +81,11 @@ GROUP  ::= "group";
 // ---------------------------------------------------------------------------------------------------------------------
 normal_statement ::= identifier <<brace statement SEMICOLON>>;
 // ---------------------------------------------------------------------------------------------------------------------
-pair ::= symbol_path eq value;
-symbol_path ::= key (DOT key)*;
-private key ::= string_inline | key_symbol | INTEGER;
-private eq ::= EQ | COLON;
-insert_pair ::= [insert_dot] pair;
-insert_item ::= insert_star value;
-insert_dot ::= DOT;
-insert_star ::= STAR;
-key_symbol ::= SYMBOL;
+expression ::= key EQ expr;
+expr ::= value;
+private key ::= namesapce;
 // ---------------------------------------------------------------------------------------------------------------------
-value ::= NULL | BOOLEAN | num | ref | str | table | annotation;
-type_hint ::= SYMBOL;
-string_prefix ::= SYMBOL;
-number_suffix ::= SYMBOL;
+value ::= NULL | BOOLEAN;
 // ---------------------------------------------------------------------------------------------------------------------
 private num ::= [SIGN] (INTEGER | DECIMAL | DECIMAL_BAD) [number_suffix] | [SIGN] BYTE;
 // ---------------------------------------------------------------------------------------------------------------------

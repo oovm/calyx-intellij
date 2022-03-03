@@ -7,7 +7,4 @@ import com.intellij.psi.PsiElement;
 
 public interface FutilRef extends PsiElement {
 
-  @NotNull
-  FutilSymbolPath getSymbolPath();
-
 }
