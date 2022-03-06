@@ -7,4 +7,10 @@ import com.intellij.psi.PsiElement;
 
 public interface FutilParenthesis extends PsiElement {
 
+  @NotNull
+  PsiElement getParenthesisL();
+
+  @NotNull
+  PsiElement getParenthesisR();
+
 }

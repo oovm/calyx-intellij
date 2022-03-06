@@ -11,14 +11,14 @@ import static com.github.cucapra.futil.psi.FutilTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.cucapra.futil.psi.*;
 
-public class FutilExprNode extends ASTWrapperPsiElement implements FutilExpr {
+public class FutilLhsNode extends ASTWrapperPsiElement implements FutilLhs {
 
-  public FutilExprNode(@NotNull ASTNode node) {
+  public FutilLhsNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull FutilVisitor visitor) {
-    visitor.visitExpr(this);
+    visitor.visitLhs(this);
   }
 
   @Override
@@ -29,8 +29,8 @@ public class FutilExprNode extends ASTWrapperPsiElement implements FutilExpr {
 
   @Override
   @NotNull
-  public FutilValue getValue() {
-    return findNotNullChildByClass(FutilValue.class);
+  public FutilNamesapce getNamesapce() {
+    return findNotNullChildByClass(FutilNamesapce.class);
   }
 
 }

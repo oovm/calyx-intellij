@@ -39,6 +39,10 @@ public class FutilVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitCall(@NotNull FutilCall o) {
+    visitPsiElement(o);
+  }
+
   public void visitComponentName(@NotNull FutilComponentName o) {
     visitPsiElement(o);
   }
@@ -52,10 +56,6 @@ public class FutilVisitor extends PsiElementVisitor {
   }
 
   public void visitEscaped(@NotNull FutilEscaped o) {
-    visitPsiElement(o);
-  }
-
-  public void visitExpr(@NotNull FutilExpr o) {
     visitPsiElement(o);
   }
 
@@ -75,6 +75,10 @@ public class FutilVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitLhs(@NotNull FutilLhs o) {
+    visitPsiElement(o);
+  }
+
   public void visitNamesapce(@NotNull FutilNamesapce o) {
     visitPsiElement(o);
   }
@@ -88,6 +92,10 @@ public class FutilVisitor extends PsiElementVisitor {
   }
 
   public void visitRef(@NotNull FutilRef o) {
+    visitPsiElement(o);
+  }
+
+  public void visitRhs(@NotNull FutilRhs o) {
     visitPsiElement(o);
   }
 

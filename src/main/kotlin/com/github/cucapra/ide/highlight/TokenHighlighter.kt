@@ -24,7 +24,7 @@ class TokenHighlighter : SyntaxHighlighterBase() {
             STRING_PREFIX -> CalyxColor.STRING_HINT
             NUMBER_SUFFIX -> CalyxColor.NUMBER_HINT
             TYPE_HINT -> CalyxColor.TYPE_HINT
-            BACK_TOP, ANGLE_L, ANGLE_R, ACCENT -> CalyxColor.SYM_VARIABLE
+            ANGLE_L, ANGLE_R, ACCENT -> CalyxColor.SYM_VARIABLE
             //
             PARENTHESIS_L, PARENTHESIS_R -> CalyxColor.PARENTHESES
             BRACKET_L, BRACKET_R -> CalyxColor.BRACKETS

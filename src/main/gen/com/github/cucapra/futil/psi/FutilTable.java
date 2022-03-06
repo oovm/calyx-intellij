@@ -7,4 +7,7 @@ import com.intellij.psi.PsiElement;
 
 public interface FutilTable extends PsiElement {
 
+  @Nullable
+  PsiElement getTypeHint();
+
 }

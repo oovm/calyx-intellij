@@ -10,7 +10,12 @@ class CompletionContributor : CompletionContributor() {
         extend(
             CompletionType.BASIC,
             PlatformPatterns.psiElement(FutilTypes.SYMBOL),
-            SymbolCompletionProvider()
+            ProvideSymbol()
+        )
+        extend(
+            CompletionType.BASIC,
+            PlatformPatterns.psiElement(FutilTypes.AT),
+            ProvideSymbol()
         )
     }
 }

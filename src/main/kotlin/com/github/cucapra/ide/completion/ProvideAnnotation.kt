@@ -7,26 +7,14 @@ import com.intellij.codeInsight.lookup.LookupElementBuilder
 import com.intellij.openapi.editor.EditorModificationUtil
 import com.intellij.util.ProcessingContext
 
-class SymbolCompletionProvider : CompletionProvider<CompletionParameters>() {
+class ProvideAnnotation : CompletionProvider<CompletionParameters>() {
     override fun addCompletions(
         parameters: CompletionParameters,
         context: ProcessingContext,
         resultSet: CompletionResultSet
     ) {
         resultSet.addElement(
-            LookupElementBuilder.create("@include")
-                .withInsertHandler { ctx, _ ->
-                    EditorModificationUtil.moveCaretRelatively(ctx.editor, -1)
-                }
-        )
-        resultSet.addElement(
-            LookupElementBuilder.create("@inherit")
-                .withInsertHandler { ctx, _ ->
-                    EditorModificationUtil.moveCaretRelatively(ctx.editor, -1)
-                }
-        )
-        resultSet.addElement(
-            LookupElementBuilder.create("Some()")
+            LookupElementBuilder.create("external")
                 .withInsertHandler { ctx, _ ->
                     EditorModificationUtil.moveCaretRelatively(ctx.editor, -1)
                 }

@@ -29,14 +29,20 @@ public class FutilExpressionNode extends ASTWrapperPsiElement implements FutilEx
 
   @Override
   @NotNull
-  public FutilExpr getExpr() {
-    return findNotNullChildByClass(FutilExpr.class);
+  public FutilLhs getLhs() {
+    return findNotNullChildByClass(FutilLhs.class);
   }
 
   @Override
   @NotNull
-  public FutilNamesapce getNamesapce() {
-    return findNotNullChildByClass(FutilNamesapce.class);
+  public FutilRhs getRhs() {
+    return findNotNullChildByClass(FutilRhs.class);
+  }
+
+  @Override
+  @NotNull
+  public PsiElement getEq() {
+    return findNotNullChildByType(EQ);
   }
 
 }

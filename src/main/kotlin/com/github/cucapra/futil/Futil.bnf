@@ -14,7 +14,7 @@
     tokenTypeClass = "com.github.cucapra.futil.psi.FutilElementType"
 
     psiImplUtilClass = "com.github.cucapra.futil.psi.FutilASTExtension"
-    // generateTokenAccessors = true
+    generateTokenAccessors = true
     tokens = [
         COMMENT = 'regexp:(//|#)[^\r\n]*'
         BLOCK_COMMENT = 'regexp:[/][*][^*]*[*]+([^/*][^*]*[*]+)*[/]'
@@ -23,14 +23,11 @@
         NULL = 'null'
         BOOLEAN = 'regexp:true|false'
 
-        SYMBOL = 'regexp:[\p{XID_Start}_][\p{XID_Continue}_]*'
-        STRING = 'regexp:"([^"\\]|\\.)*"'
+        SYMBOL = 'Symbol'
+        STRING = 'String'
         BYTE = 'regexp:(0[bBoOxXfF][0-9A-Fa-f][0-9A-Fa-f_]*)'
         INTEGER = 'regexp:(0|[1-9][0-9_]*)'
         DECIMAL = 'regexp:[0-9]+\.[0-9]+([eE][+-][0-9]+)?'
-//      DECIMAL_BAD = 'regexp:([0-9]+\.([eE][+-][0-9]+)?)|(\.[0-9]+([Ee][+-][0-9]+)?)'
-        SIGN = 'regexp:[+-]'
-        BACK_TOP = 'regexp:[-][-][-]+' // [-]{3,}
 
         PARENTHESIS_L = '('
         PARENTHESIS_R = ')'
@@ -57,33 +54,37 @@
     ]
 }
 
-Futil ::= statement*;
-private statement ::=
+Futil ::= top_statement*;
+private top_statement ::=
     import_statement
   | component_statement
-  | group_statement
+  | SEMICOLON
+  ;
+private inner_statement ::=
+    group_statement
   | normal_statement
   | annotation
   | expression
-  | SEMICOLON
   ;
 // ---------------------------------------------------------------------------------------------------------------------
-import_statement ::= IMPORT string_inline;
+import_statement ::= IMPORT STRING;
 IMPORT ::= "import"
 // ---------------------------------------------------------------------------------------------------------------------
-component_statement ::= COMPONENT component_name component_target <<brace statement SEMICOLON>>;
+component_statement ::= COMPONENT component_name component_target <<brace inner_statement SEMICOLON>>;
 component_name ::= identifier <<parenthesis identifier SEMICOLON>>
 component_target ::= TO <<parenthesis identifier SEMICOLON>>
 COMPONENT ::= "component"
 // ---------------------------------------------------------------------------------------------------------------------
-group_statement ::= GROUP identifier <<brace statement SEMICOLON>>;
+group_statement ::= GROUP identifier <<brace inner_statement SEMICOLON>>;
 GROUP  ::= "group";
 // ---------------------------------------------------------------------------------------------------------------------
-normal_statement ::= identifier <<brace statement SEMICOLON>>;
+normal_statement ::= identifier <<brace inner_statement SEMICOLON>>;
 // ---------------------------------------------------------------------------------------------------------------------
-expression ::= key EQ expr;
-expr ::= value;
-private key ::= namesapce;
+expression ::= lhs EQ rhs;
+rhs ::= call | value;
+lhs ::= namesapce;
+// ---------------------------------------------------------------------------------------------------------------------
+call ::= identifier <<parenthesis expression COMMA>>;
 // ---------------------------------------------------------------------------------------------------------------------
 value ::= NULL | BOOLEAN;
 // ---------------------------------------------------------------------------------------------------------------------

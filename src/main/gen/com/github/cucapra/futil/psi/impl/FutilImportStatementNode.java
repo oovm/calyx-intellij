@@ -35,8 +35,8 @@ public class FutilImportStatementNode extends ASTWrapperPsiElement implements Fu
 
   @Override
   @NotNull
-  public FutilStringInline getStringInline() {
-    return findNotNullChildByClass(FutilStringInline.class);
+  public PsiElement getString() {
+    return findNotNullChildByType(STRING);
   }
 
 }

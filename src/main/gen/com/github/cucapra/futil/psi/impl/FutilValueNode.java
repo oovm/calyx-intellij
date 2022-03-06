@@ -33,4 +33,10 @@ public class FutilValueNode extends ASTWrapperPsiElement implements FutilValue {
     return findChildByType(BOOLEAN);
   }
 
+  @Override
+  @Nullable
+  public PsiElement getNull() {
+    return findChildByType(NULL);
+  }
+
 }

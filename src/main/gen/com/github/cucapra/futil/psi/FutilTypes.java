@@ -13,22 +13,24 @@ public interface FutilTypes {
   IElementType ANNOTATION_MARK = new FutilElementType("ANNOTATION_MARK");
   IElementType BRACE = new FutilElementType("BRACE");
   IElementType BRACKET = new FutilElementType("BRACKET");
+  IElementType CALL = new FutilElementType("CALL");
   IElementType COMPONENT = new FutilElementType("COMPONENT");
   IElementType COMPONENT_NAME = new FutilElementType("COMPONENT_NAME");
   IElementType COMPONENT_STATEMENT = new FutilElementType("COMPONENT_STATEMENT");
   IElementType COMPONENT_TARGET = new FutilElementType("COMPONENT_TARGET");
   IElementType ESCAPED = new FutilElementType("ESCAPED");
-  IElementType EXPR = new FutilElementType("EXPR");
   IElementType EXPRESSION = new FutilElementType("EXPRESSION");
   IElementType GROUP = new FutilElementType("GROUP");
   IElementType GROUP_STATEMENT = new FutilElementType("GROUP_STATEMENT");
   IElementType IDENTIFIER = new FutilElementType("IDENTIFIER");
   IElementType IMPORT = new FutilElementType("IMPORT");
   IElementType IMPORT_STATEMENT = new FutilElementType("IMPORT_STATEMENT");
+  IElementType LHS = new FutilElementType("LHS");
   IElementType NAMESAPCE = new FutilElementType("NAMESAPCE");
   IElementType NORMAL_STATEMENT = new FutilElementType("NORMAL_STATEMENT");
   IElementType PARENTHESIS = new FutilElementType("PARENTHESIS");
   IElementType REF = new FutilElementType("REF");
+  IElementType RHS = new FutilElementType("RHS");
   IElementType STRING_INLINE = new FutilElementType("STRING_INLINE");
   IElementType STRING_MULTI = new FutilElementType("STRING_MULTI");
   IElementType TABLE = new FutilElementType("TABLE");
@@ -39,7 +41,6 @@ public interface FutilTypes {
   IElementType ANGLE_R = new FutilElementType(">");
   IElementType AS = new FutilElementType("as");
   IElementType AT = new FutilElementType("@");
-  IElementType BACK_TOP = new FutilElementType("BACK_TOP");
   IElementType BLOCK_COMMENT = new FutilElementType("BLOCK_COMMENT");
   IElementType BOOLEAN = new FutilElementType("BOOLEAN");
   IElementType BRACE_L = new FutilElementType("{");
@@ -69,9 +70,9 @@ public interface FutilTypes {
   IElementType SEMICOLON = new FutilElementType(";");
   IElementType SIGN = new FutilElementType("SIGN");
   IElementType STAR = new FutilElementType("*");
-  IElementType STRING = new FutilElementType("STRING");
+  IElementType STRING = new FutilElementType("String");
   IElementType STRING_PREFIX = new FutilElementType("string_prefix");
-  IElementType SYMBOL = new FutilElementType("SYMBOL");
+  IElementType SYMBOL = new FutilElementType("Symbol");
   IElementType SYMBOL_PATH = new FutilElementType("symbol_path");
   IElementType TO = new FutilElementType("TO");
   IElementType TYPE_HINT = new FutilElementType("type_hint");
@@ -94,6 +95,9 @@ public interface FutilTypes {
       else if (type == BRACKET) {
         return new FutilBracketNode(node);
       }
+      else if (type == CALL) {
+        return new FutilCallNode(node);
+      }
       else if (type == COMPONENT) {
         return new FutilComponentNode(node);
       }
@@ -108,9 +112,6 @@ public interface FutilTypes {
       }
       else if (type == ESCAPED) {
         return new FutilEscapedNode(node);
-      }
-      else if (type == EXPR) {
-        return new FutilExprNode(node);
       }
       else if (type == EXPRESSION) {
         return new FutilExpressionNode(node);
@@ -130,6 +131,9 @@ public interface FutilTypes {
       else if (type == IMPORT_STATEMENT) {
         return new FutilImportStatementNode(node);
       }
+      else if (type == LHS) {
+        return new FutilLhsNode(node);
+      }
       else if (type == NAMESAPCE) {
         return new FutilNamesapceNode(node);
       }
@@ -141,6 +145,9 @@ public interface FutilTypes {
       }
       else if (type == REF) {
         return new FutilRefNode(node);
+      }
+      else if (type == RHS) {
+        return new FutilRhsNode(node);
       }
       else if (type == STRING_INLINE) {
         return new FutilStringInlineNode(node);

@@ -10,4 +10,7 @@ public interface FutilComponentTarget extends PsiElement {
   @NotNull
   FutilParenthesis getParenthesis();
 
+  @NotNull
+  PsiElement getTo();
+
 }

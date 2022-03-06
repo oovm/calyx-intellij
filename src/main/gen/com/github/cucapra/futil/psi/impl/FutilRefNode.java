@@ -27,4 +27,16 @@ public class FutilRefNode extends ASTWrapperPsiElement implements FutilRef {
     else super.accept(visitor);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getCite() {
+    return findNotNullChildByType(CITE);
+  }
+
+  @Override
+  @NotNull
+  public PsiElement getSymbolPath() {
+    return findNotNullChildByType(SYMBOL_PATH);
+  }
+
 }

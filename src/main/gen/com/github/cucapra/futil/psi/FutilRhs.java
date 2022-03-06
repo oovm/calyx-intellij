@@ -5,12 +5,12 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface FutilAngle extends PsiElement {
+public interface FutilRhs extends PsiElement {
 
-  @NotNull
-  PsiElement getAngleL();
+  @Nullable
+  FutilCall getCall();
 
-  @NotNull
-  PsiElement getAngleR();
+  @Nullable
+  FutilValue getValue();
 
 }

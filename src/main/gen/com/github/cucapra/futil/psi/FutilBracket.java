@@ -7,4 +7,10 @@ import com.intellij.psi.PsiElement;
 
 public interface FutilBracket extends PsiElement {
 
+  @NotNull
+  PsiElement getBracketL();
+
+  @NotNull
+  PsiElement getBracketR();
+
 }

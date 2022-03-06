@@ -8,9 +8,12 @@ import com.intellij.psi.PsiElement;
 public interface FutilExpression extends PsiElement {
 
   @NotNull
-  FutilExpr getExpr();
+  FutilLhs getLhs();
 
   @NotNull
-  FutilNamesapce getNamesapce();
+  FutilRhs getRhs();
+
+  @NotNull
+  PsiElement getEq();
 
 }

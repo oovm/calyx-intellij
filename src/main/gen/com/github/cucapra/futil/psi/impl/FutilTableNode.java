@@ -27,4 +27,10 @@ public class FutilTableNode extends ASTWrapperPsiElement implements FutilTable {
     else super.accept(visitor);
   }
 
+  @Override
+  @Nullable
+  public PsiElement getTypeHint() {
+    return findChildByType(TYPE_HINT);
+  }
+
 }

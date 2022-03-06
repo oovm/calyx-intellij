@@ -33,4 +33,10 @@ public class FutilComponentTargetNode extends ASTWrapperPsiElement implements Fu
     return findNotNullChildByClass(FutilParenthesis.class);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getTo() {
+    return findNotNullChildByType(TO);
+  }
+
 }

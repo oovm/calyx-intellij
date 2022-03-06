@@ -10,4 +10,7 @@ public interface FutilValue extends PsiElement {
   @Nullable
   PsiElement getBoolean();
 
+  @Nullable
+  PsiElement getNull();
+
 }

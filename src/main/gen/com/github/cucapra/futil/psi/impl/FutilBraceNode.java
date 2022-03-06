@@ -27,4 +27,16 @@ public class FutilBraceNode extends ASTWrapperPsiElement implements FutilBrace {
     else super.accept(visitor);
   }
 
+  @Override
+  @NotNull
+  public PsiElement getBraceL() {
+    return findNotNullChildByType(BRACE_L);
+  }
+
+  @Override
+  @NotNull
+  public PsiElement getBraceR() {
+    return findNotNullChildByType(BRACE_R);
+  }
+
 }
