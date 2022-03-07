@@ -34,9 +34,9 @@ public class FutilAnnotationMarkNode extends ASTWrapperPsiElement implements Fut
   }
 
   @Override
-  @NotNull
+  @Nullable
   public PsiElement getSymbol() {
-    return findNotNullChildByType(SYMBOL);
+    return findChildByType(SYMBOL);
   }
 
 }

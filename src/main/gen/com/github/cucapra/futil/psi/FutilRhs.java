@@ -7,28 +7,10 @@ import com.intellij.psi.PsiElement;
 
 public interface FutilRhs extends PsiElement {
 
-  @Nullable
-  FutilCall getCall();
+  @NotNull
+  List<FutilValue> getValueList();
 
   @Nullable
-  FutilValue getValue();
-
-  @Nullable
-  PsiElement getByte();
-
-  @Nullable
-  PsiElement getDecimal();
-
-  @Nullable
-  PsiElement getDecimalBad();
-
-  @Nullable
-  PsiElement getInteger();
-
-  @Nullable
-  PsiElement getSign();
-
-  @Nullable
-  PsiElement getNumberSuffix();
+  PsiElement getQuestion();
 
 }

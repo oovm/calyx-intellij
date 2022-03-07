@@ -11,14 +11,14 @@ import static com.github.cucapra.futil.psi.FutilTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.cucapra.futil.psi.*;
 
-public class FutilEscapedNode extends ASTWrapperPsiElement implements FutilEscaped {
+public class FutilSliceNode extends ASTWrapperPsiElement implements FutilSlice {
 
-  public FutilEscapedNode(@NotNull ASTNode node) {
+  public FutilSliceNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull FutilVisitor visitor) {
-    visitor.visitEscaped(this);
+    visitor.visitSlice(this);
   }
 
   @Override
@@ -28,9 +28,9 @@ public class FutilEscapedNode extends ASTWrapperPsiElement implements FutilEscap
   }
 
   @Override
-  @Nullable
-  public PsiElement getNonEscape() {
-    return findChildByType(NON_ESCAPE);
+  @NotNull
+  public FutilBracket getBracket() {
+    return findNotNullChildByClass(FutilBracket.class);
   }
 
 }

@@ -29,8 +29,14 @@ public class FutilLhsNode extends ASTWrapperPsiElement implements FutilLhs {
 
   @Override
   @NotNull
-  public FutilNamesapce getNamesapce() {
-    return findNotNullChildByClass(FutilNamesapce.class);
+  public FutilNamespace getNamespace() {
+    return findNotNullChildByClass(FutilNamespace.class);
+  }
+
+  @Override
+  @Nullable
+  public FutilSlice getSlice() {
+    return findChildByClass(FutilSlice.class);
   }
 
 }

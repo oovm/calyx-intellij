@@ -28,51 +28,15 @@ public class FutilRhsNode extends ASTWrapperPsiElement implements FutilRhs {
   }
 
   @Override
-  @Nullable
-  public FutilCall getCall() {
-    return findChildByClass(FutilCall.class);
+  @NotNull
+  public List<FutilValue> getValueList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, FutilValue.class);
   }
 
   @Override
   @Nullable
-  public FutilValue getValue() {
-    return findChildByClass(FutilValue.class);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getByte() {
-    return findChildByType(BYTE);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getDecimal() {
-    return findChildByType(DECIMAL);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getDecimalBad() {
-    return findChildByType(DECIMAL_BAD);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getInteger() {
-    return findChildByType(INTEGER);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getSign() {
-    return findChildByType(SIGN);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getNumberSuffix() {
-    return findChildByType(NUMBER_SUFFIX);
+  public PsiElement getQuestion() {
+    return findChildByType(QUESTION);
   }
 
 }

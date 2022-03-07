@@ -8,6 +8,9 @@ import com.intellij.psi.PsiElement;
 public interface FutilLhs extends PsiElement {
 
   @NotNull
-  FutilNamesapce getNamesapce();
+  FutilNamespace getNamespace();
+
+  @Nullable
+  FutilSlice getSlice();
 
 }

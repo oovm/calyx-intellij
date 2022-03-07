@@ -29,14 +29,26 @@ public class FutilValueNode extends ASTWrapperPsiElement implements FutilValue {
 
   @Override
   @Nullable
-  public PsiElement getBoolean() {
-    return findChildByType(BOOLEAN);
+  public FutilCall getCall() {
+    return findChildByClass(FutilCall.class);
   }
 
   @Override
   @Nullable
-  public PsiElement getNull() {
-    return findChildByType(NULL);
+  public FutilNamespace getNamespace() {
+    return findChildByClass(FutilNamespace.class);
+  }
+
+  @Override
+  @Nullable
+  public PsiElement getBits() {
+    return findChildByType(BITS);
+  }
+
+  @Override
+  @Nullable
+  public PsiElement getNumber() {
+    return findChildByType(NUMBER);
   }
 
 }

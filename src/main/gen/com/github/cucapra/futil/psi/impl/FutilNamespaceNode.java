@@ -11,14 +11,14 @@ import static com.github.cucapra.futil.psi.FutilTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.cucapra.futil.psi.*;
 
-public class FutilNamesapceNode extends ASTWrapperPsiElement implements FutilNamesapce {
+public class FutilNamespaceNode extends ASTWrapperPsiElement implements FutilNamespace {
 
-  public FutilNamesapceNode(@NotNull ASTNode node) {
+  public FutilNamespaceNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull FutilVisitor visitor) {
-    visitor.visitNamesapce(this);
+    visitor.visitNamespace(this);
   }
 
   @Override

@@ -10,7 +10,7 @@ public interface FutilAnnotationMark extends PsiElement {
   @NotNull
   PsiElement getAt();
 
-  @NotNull
+  @Nullable
   PsiElement getSymbol();
 
 }

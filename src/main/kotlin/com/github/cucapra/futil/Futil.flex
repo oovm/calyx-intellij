@@ -32,7 +32,7 @@ ANNOTATION=@{SYMBOL}
 STRING=\"([^\"\\]|\\.)*\"
 BYTE=(0[bBoOxXfF][0-9A-Fa-f][0-9A-Fa-f_]*)
 INTEGER=(0|[1-9][0-9_]*)
-DECIMAL=[0-9]+\.[0-9]+([eE][+-][0-9]+)?
+BITS='d{INTEGER}
 SIGN=[+-]
 NON_ESCAPE=[^\\]
 
@@ -57,19 +57,17 @@ NON_ESCAPE=[^\\]
     "."                  { return DOT; }
     "*"                  { return STAR; }
     "@"                  { return AT; }
+    "?"                  { return QUESTION; }
     "->"                 { return TO; }
 }
 <YYINITIAL> {
     {WHITE_SPACE}        { return WHITE_SPACE; }
     {COMMENT}            { return COMMENT; }
     {BLOCK_COMMENT}      { return BLOCK_COMMENT; }
-    {BOOLEAN}            { return BOOLEAN; }
     {SYMBOL}             { return SYMBOL; }
     {STRING}             { return STRING; }
-    {BYTE}               { return BYTE; }
-    {INTEGER}            { return INTEGER; }
-    {DECIMAL}            { return DECIMAL; }
-    {SIGN}               { return SIGN; }
+    {INTEGER}            { return NUMBER; }
+    {BITS}               { return BITS; }
     {NON_ESCAPE}         { return NON_ESCAPE; }
 }
 

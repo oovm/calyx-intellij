@@ -5,12 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface FutilRef extends PsiElement {
+public interface FutilNamespace extends PsiElement {
 
   @NotNull
-  PsiElement getCite();
-
-  @NotNull
-  PsiElement getSymbolPath();
+  List<FutilIdentifier> getIdentifierList();
 
 }

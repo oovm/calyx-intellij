@@ -5,9 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface FutilStringMulti extends PsiElement {
+public interface FutilSlice extends PsiElement {
 
   @NotNull
-  List<FutilEscaped> getEscapedList();
+  FutilBracket getBracket();
 
 }

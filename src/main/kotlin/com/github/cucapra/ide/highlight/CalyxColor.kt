@@ -19,23 +19,15 @@ enum class CalyxColor(humanName: Supplier<@AttributeDescriptor String>, default:
     SYM_VARIABLE(CalyxBundle.messagePointer("color.token.variable"), KEYWORD.textAttributesKey),
     SYM_GROUP(CalyxBundle.messagePointer("color.token.group"), KEYWORD.textAttributesKey),
     // 字面量
-    NULL(CalyxBundle.messagePointer("color.settings.voml.null"), Default.KEYWORD),
+    NULL(CalyxBundle.messagePointer("color.token.null"), Default.KEYWORD),
     BOOLEAN(CalyxBundle.messagePointer("color.settings.voml.boolean"), Default.KEYWORD),
-    NUMBER_HINT(CalyxBundle.messagePointer("color.settings.voml.number_hint"), Default.METADATA),
-    DECIMAL(CalyxBundle.messagePointer("color.settings.voml.decimal"), Default.NUMBER),
-    INTEGER(CalyxBundle.messagePointer("color.settings.voml.integer"), Default.NUMBER),
-    STRING_HINT(CalyxBundle.messagePointer("color.settings.voml.string_hint"), Default.KEYWORD),
+    NUMBER(CalyxBundle.messagePointer("color.token.number"), Default.NUMBER),
+    BITS(CalyxBundle.messagePointer("color.settings.voml.decimal"), Default.KEYWORD),
     STRING(CalyxBundle.messagePointer("color.settings.voml.string"), Default.STRING),
     IDENTIFIER(OptionsBundle.messagePointer("options.language.defaults.identifier"), Default.IDENTIFIER),
     //
-    TYPE_HINT(CalyxBundle.messagePointer("color.settings.voml.type_hint"), Default.CLASS_NAME),
     KEY_SYMBOL(CalyxBundle.messagePointer("color.settings.voml.key_symbol"), Default.STATIC_FIELD),
-
-    INSERT_MARK(CalyxBundle.messagePointer("color.settings.voml.insert_mark"), KEYWORD.textAttributesKey),
     ANNOTATION(OptionsBundle.messagePointer("options.java.attribute.descriptor.annotation.name"), Default.METADATA),
-    // 元数据
-    EXTENSION(OptionsBundle.messagePointer("options.language.defaults.metadata"), Default.METADATA),
-    PREDEFINED(OptionsBundle.messagePointer("options.language.defaults.predefined"), Default.PREDEFINED_SYMBOL),
     // 标点符号
     PARENTHESES(OptionsBundle.messagePointer("options.language.defaults.parentheses"), Default.PARENTHESES),
     BRACKETS(OptionsBundle.messagePointer("options.language.defaults.brackets"), Default.BRACKETS),
@@ -44,8 +36,6 @@ enum class CalyxColor(humanName: Supplier<@AttributeDescriptor String>, default:
     COMMA(OptionsBundle.messagePointer("options.language.defaults.comma"), Default.COMMA),
     SET(CalyxBundle.messagePointer("color.settings.voml.set"), Default.OPERATION_SIGN),
     SEMICOLON(OptionsBundle.messagePointer("options.language.defaults.semicolon"), Default.SEMICOLON),
-
-
 
     // 注释
     LINE_COMMENT(OptionsBundle.messagePointer("options.language.defaults.line.comment"), Default.LINE_COMMENT),

@@ -8,9 +8,15 @@ import com.intellij.psi.PsiElement;
 public interface FutilValue extends PsiElement {
 
   @Nullable
-  PsiElement getBoolean();
+  FutilCall getCall();
 
   @Nullable
-  PsiElement getNull();
+  FutilNamespace getNamespace();
+
+  @Nullable
+  PsiElement getBits();
+
+  @Nullable
+  PsiElement getNumber();
 
 }

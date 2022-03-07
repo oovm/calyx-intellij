@@ -21,9 +21,6 @@ class TokenHighlighter : SyntaxHighlighterBase() {
             IMPORT, AS -> CalyxColor.KEYWORD
             ANNOTATION, ANNOTATION_MARK -> CalyxColor.ANNOTATION
             //
-            STRING_PREFIX -> CalyxColor.STRING_HINT
-            NUMBER_SUFFIX -> CalyxColor.NUMBER_HINT
-            TYPE_HINT -> CalyxColor.TYPE_HINT
             ANGLE_L, ANGLE_R, ACCENT -> CalyxColor.SYM_VARIABLE
             //
             PARENTHESIS_L, PARENTHESIS_R -> CalyxColor.PARENTHESES
@@ -34,13 +31,9 @@ class TokenHighlighter : SyntaxHighlighterBase() {
             // atom
             NULL -> CalyxColor.NULL
             BOOLEAN -> CalyxColor.BOOLEAN
-
-            NUMBER_SUFFIX -> CalyxColor.NUMBER_HINT
-            INTEGER -> CalyxColor.INTEGER
-            DECIMAL, DECIMAL_BAD -> CalyxColor.DECIMAL
-
-            STRING_PREFIX -> CalyxColor.STRING_HINT
-            STRING, STRING_INLINE, STRING_MULTI -> CalyxColor.STRING
+            NUMBER -> CalyxColor.NUMBER
+            BITS -> CalyxColor.BITS
+            STRING -> CalyxColor.STRING
             // 注释
             COMMENT -> CalyxColor.LINE_COMMENT
             BLOCK_COMMENT -> CalyxColor.BLOCK_COMMENT
