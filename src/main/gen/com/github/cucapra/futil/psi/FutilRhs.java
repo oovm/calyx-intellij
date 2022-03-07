@@ -13,4 +13,22 @@ public interface FutilRhs extends PsiElement {
   @Nullable
   FutilValue getValue();
 
+  @Nullable
+  PsiElement getByte();
+
+  @Nullable
+  PsiElement getDecimal();
+
+  @Nullable
+  PsiElement getDecimalBad();
+
+  @Nullable
+  PsiElement getInteger();
+
+  @Nullable
+  PsiElement getSign();
+
+  @Nullable
+  PsiElement getNumberSuffix();
+
 }

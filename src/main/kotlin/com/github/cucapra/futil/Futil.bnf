@@ -63,8 +63,7 @@ private top_statement ::=
 private inner_statement ::=
     group_statement
   | normal_statement
-  | annotation
-  | expression
+  | annotation? expression
   ;
 // ---------------------------------------------------------------------------------------------------------------------
 import_statement ::= IMPORT STRING;
@@ -81,10 +80,10 @@ GROUP  ::= "group";
 normal_statement ::= identifier <<brace inner_statement SEMICOLON>>;
 // ---------------------------------------------------------------------------------------------------------------------
 expression ::= lhs EQ rhs;
-rhs ::= call | value;
+rhs ::= call | value | num;
 lhs ::= namesapce;
 // ---------------------------------------------------------------------------------------------------------------------
-call ::= identifier <<parenthesis expression COMMA>>;
+call ::= identifier <<parenthesis rhs COMMA>>;
 // ---------------------------------------------------------------------------------------------------------------------
 value ::= NULL | BOOLEAN;
 // ---------------------------------------------------------------------------------------------------------------------
@@ -113,5 +112,5 @@ identifier ::= SYMBOL
 // ---------------------------------------------------------------------------------------------------------------------
 meta parenthesis ::= PARENTHESIS_L [<<param>> (<<sep>> <<param>>)* [<<sep>>]] PARENTHESIS_R;
 meta bracket ::= BRACKET_L [<<param>> (<<sep>> <<param>>)* [<<sep>>]] BRACKET_R;
-meta brace   ::= BRACE_L [<<param>> (<<sep>> <<param>>)* [<<sep>>]] BRACE_R
+meta brace   ::= BRACE_L (<<param>>|<<sep>>)* BRACE_R
 meta angle   ::= ANGLE_L [<<param>> (<<sep>> <<param>>)* [<<sep>>]] ANGLE_R
