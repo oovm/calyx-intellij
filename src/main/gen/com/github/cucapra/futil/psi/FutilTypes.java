@@ -14,6 +14,8 @@ public interface FutilTypes {
   IElementType BRACE = new FutilElementType("BRACE");
   IElementType BRACKET = new FutilElementType("BRACKET");
   IElementType CALL = new FutilElementType("CALL");
+  IElementType COMB = new FutilElementType("COMB");
+  IElementType COMB_STATEMENT = new FutilElementType("COMB_STATEMENT");
   IElementType COMPONENT = new FutilElementType("COMPONENT");
   IElementType COMPONENT_NAME = new FutilElementType("COMPONENT_NAME");
   IElementType COMPONENT_STATEMENT = new FutilElementType("COMPONENT_STATEMENT");
@@ -27,10 +29,16 @@ public interface FutilTypes {
   IElementType LHS = new FutilElementType("LHS");
   IElementType NAMESPACE = new FutilElementType("NAMESPACE");
   IElementType NORMAL_STATEMENT = new FutilElementType("NORMAL_STATEMENT");
+  IElementType PAR = new FutilElementType("PAR");
   IElementType PARENTHESIS = new FutilElementType("PARENTHESIS");
+  IElementType PAR_STATEMENT = new FutilElementType("PAR_STATEMENT");
   IElementType RHS = new FutilElementType("RHS");
+  IElementType SEQ = new FutilElementType("SEQ");
   IElementType SLICE = new FutilElementType("SLICE");
   IElementType VALUE = new FutilElementType("VALUE");
+  IElementType WHILE = new FutilElementType("WHILE");
+  IElementType WHILE_STATEMENT = new FutilElementType("WHILE_STATEMENT");
+  IElementType WITH = new FutilElementType("WITH");
 
   IElementType ACCENT = new FutilElementType("^");
   IElementType ANGLE_L = new FutilElementType("<");
@@ -85,6 +93,12 @@ public interface FutilTypes {
       else if (type == CALL) {
         return new FutilCallNode(node);
       }
+      else if (type == COMB) {
+        return new FutilCombNode(node);
+      }
+      else if (type == COMB_STATEMENT) {
+        return new FutilCombStatementNode(node);
+      }
       else if (type == COMPONENT) {
         return new FutilComponentNode(node);
       }
@@ -124,17 +138,35 @@ public interface FutilTypes {
       else if (type == NORMAL_STATEMENT) {
         return new FutilNormalStatementNode(node);
       }
+      else if (type == PAR) {
+        return new FutilParNode(node);
+      }
       else if (type == PARENTHESIS) {
         return new FutilParenthesisNode(node);
       }
+      else if (type == PAR_STATEMENT) {
+        return new FutilParStatementNode(node);
+      }
       else if (type == RHS) {
         return new FutilRhsNode(node);
+      }
+      else if (type == SEQ) {
+        return new FutilSeqNode(node);
       }
       else if (type == SLICE) {
         return new FutilSliceNode(node);
       }
       else if (type == VALUE) {
         return new FutilValueNode(node);
+      }
+      else if (type == WHILE) {
+        return new FutilWhileNode(node);
+      }
+      else if (type == WHILE_STATEMENT) {
+        return new FutilWhileStatementNode(node);
+      }
+      else if (type == WITH) {
+        return new FutilWithNode(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }

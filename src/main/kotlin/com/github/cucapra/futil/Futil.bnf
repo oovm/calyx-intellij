@@ -54,35 +54,49 @@
     ]
 }
 
-Futil ::= top_statement*;
-private top_statement ::=
+Futil ::= top_stat*;
+private top_stat ::=
     import_statement
   | component_statement
   | SEMICOLON
   ;
-private inner_statement ::=
+private inner_stat ::=
+    seq_stat
+  | annotation? expression
+  ;
+private seq_stat ::=
     group_statement
   | comb_statement
+  | par_statement
+  | while_statement
   | normal_statement
-  | annotation
-  | expression
   ;
 // ---------------------------------------------------------------------------------------------------------------------
 import_statement ::= IMPORT STRING;
 IMPORT ::= "import"
 // ---------------------------------------------------------------------------------------------------------------------
-component_statement ::= COMPONENT component_name component_target <<brace inner_statement SEMICOLON>>;
+component_statement ::= COMPONENT component_name component_target <<brace inner_stat SEMICOLON>>;
 component_name ::= identifier <<parenthesis identifier SEMICOLON>>
 component_target ::= TO <<parenthesis identifier SEMICOLON>>
 COMPONENT ::= "component"
 // ---------------------------------------------------------------------------------------------------------------------
-group_statement ::= GROUP identifier <<brace inner_statement SEMICOLON>>;
+group_statement ::= GROUP identifier <<brace inner_stat SEMICOLON>>;
 GROUP  ::= "group";
 // ---------------------------------------------------------------------------------------------------------------------
-comb_statement ::= COMB identifier identifier <<brace inner_statement SEMICOLON>>;
+comb_statement ::= COMB GROUP identifier <<brace inner_stat SEMICOLON>>;
 COMB ::= "comb";
 // ---------------------------------------------------------------------------------------------------------------------
-normal_statement ::= identifier <<brace inner_statement SEMICOLON>>;
+par_statement ::= seq_k <<brace seq_s SEMICOLON>> BRACE_R;
+private seq_k ::= SEQ | PAR;
+private seq_s ::= seq_stat | identifier;
+SEQ ::= "seq";
+PAR ::= "par"
+// ---------------------------------------------------------------------------------------------------------------------
+while_statement ::= WHILE namespace [WITH identifier] <<brace inner_stat SEMICOLON>>;
+WHILE ::= "while";
+WITH ::= "with";
+// ---------------------------------------------------------------------------------------------------------------------
+normal_statement ::= identifier <<brace inner_stat SEMICOLON>>;
 // ---------------------------------------------------------------------------------------------------------------------
 annotation ::= annotation_mark;
 annotation_mark ::= AT SYMBOL?;
@@ -102,5 +116,5 @@ identifier ::= SYMBOL
 // ---------------------------------------------------------------------------------------------------------------------
 meta parenthesis ::= PARENTHESIS_L [<<param>> (<<sep>> <<param>>)* [<<sep>>]] PARENTHESIS_R;
 meta bracket ::= BRACKET_L [<<param>> (<<sep>> <<param>>)* [<<sep>>]] BRACKET_R;
-meta brace   ::= BRACE_L (<<param>>|<<sep>>)* BRACE_R
+meta brace   ::= BRACE_L [<<param>> (<<sep>> <<param>>)* [<<sep>>]] BRACE_R
 meta angle   ::= ANGLE_L [<<param>> (<<sep>> <<param>>)* [<<sep>>]] ANGLE_R

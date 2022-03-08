@@ -7,6 +7,10 @@ import com.intellij.psi.PsiElement;
 
 public class FutilVisitor extends PsiElementVisitor {
 
+  public void visitComb(@NotNull FutilComb o) {
+    visitPsiElement(o);
+  }
+
   public void visitComponent(@NotNull FutilComponent o) {
     visitPsiElement(o);
   }
@@ -16,6 +20,22 @@ public class FutilVisitor extends PsiElementVisitor {
   }
 
   public void visitImport(@NotNull FutilImport o) {
+    visitPsiElement(o);
+  }
+
+  public void visitPar(@NotNull FutilPar o) {
+    visitPsiElement(o);
+  }
+
+  public void visitSeq(@NotNull FutilSeq o) {
+    visitPsiElement(o);
+  }
+
+  public void visitWhile(@NotNull FutilWhile o) {
+    visitPsiElement(o);
+  }
+
+  public void visitWith(@NotNull FutilWith o) {
     visitPsiElement(o);
   }
 
@@ -40,6 +60,10 @@ public class FutilVisitor extends PsiElementVisitor {
   }
 
   public void visitCall(@NotNull FutilCall o) {
+    visitPsiElement(o);
+  }
+
+  public void visitCombStatement(@NotNull FutilCombStatement o) {
     visitPsiElement(o);
   }
 
@@ -83,6 +107,10 @@ public class FutilVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitParStatement(@NotNull FutilParStatement o) {
+    visitPsiElement(o);
+  }
+
   public void visitParenthesis(@NotNull FutilParenthesis o) {
     visitPsiElement(o);
   }
@@ -96,6 +124,10 @@ public class FutilVisitor extends PsiElementVisitor {
   }
 
   public void visitValue(@NotNull FutilValue o) {
+    visitPsiElement(o);
+  }
+
+  public void visitWhileStatement(@NotNull FutilWhileStatement o) {
     visitPsiElement(o);
   }
 
