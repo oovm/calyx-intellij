@@ -7,10 +7,4 @@ import com.intellij.psi.PsiElement;
 
 public interface FutilAngle extends PsiElement {
 
-  @NotNull
-  PsiElement getAngleL();
-
-  @NotNull
-  PsiElement getAngleR();
-
 }

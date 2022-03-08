@@ -10,7 +10,4 @@ public interface FutilImportStatement extends PsiElement {
   @NotNull
   FutilImport getImport();
 
-  @NotNull
-  PsiElement getString();
-
 }

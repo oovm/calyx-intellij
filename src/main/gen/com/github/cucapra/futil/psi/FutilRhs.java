@@ -10,7 +10,4 @@ public interface FutilRhs extends PsiElement {
   @NotNull
   List<FutilValue> getValueList();
 
-  @Nullable
-  PsiElement getQuestion();
-
 }

@@ -13,7 +13,4 @@ public interface FutilExpression extends PsiElement {
   @NotNull
   FutilRhs getRhs();
 
-  @NotNull
-  PsiElement getEq();
-
 }

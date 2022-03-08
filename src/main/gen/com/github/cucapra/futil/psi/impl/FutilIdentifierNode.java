@@ -27,10 +27,4 @@ public class FutilIdentifierNode extends ASTWrapperPsiElement implements FutilId
     else super.accept(visitor);
   }
 
-  @Override
-  @NotNull
-  public PsiElement getSymbol() {
-    return findNotNullChildByType(SYMBOL);
-  }
-
 }

@@ -7,10 +7,4 @@ import com.intellij.psi.PsiElement;
 
 public interface FutilAnnotationMark extends PsiElement {
 
-  @NotNull
-  PsiElement getAt();
-
-  @Nullable
-  PsiElement getSymbol();
-
 }

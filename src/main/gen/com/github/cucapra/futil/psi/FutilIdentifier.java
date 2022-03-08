@@ -7,7 +7,4 @@ import com.intellij.psi.PsiElement;
 
 public interface FutilIdentifier extends PsiElement {
 
-  @NotNull
-  PsiElement getSymbol();
-
 }

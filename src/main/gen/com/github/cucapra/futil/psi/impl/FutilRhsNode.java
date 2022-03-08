@@ -33,10 +33,4 @@ public class FutilRhsNode extends ASTWrapperPsiElement implements FutilRhs {
     return PsiTreeUtil.getChildrenOfTypeAsList(this, FutilValue.class);
   }
 
-  @Override
-  @Nullable
-  public PsiElement getQuestion() {
-    return findChildByType(QUESTION);
-  }
-
 }

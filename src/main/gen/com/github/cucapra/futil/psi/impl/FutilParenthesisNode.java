@@ -27,16 +27,4 @@ public class FutilParenthesisNode extends ASTWrapperPsiElement implements FutilP
     else super.accept(visitor);
   }
 
-  @Override
-  @NotNull
-  public PsiElement getParenthesisL() {
-    return findNotNullChildByType(PARENTHESIS_L);
-  }
-
-  @Override
-  @NotNull
-  public PsiElement getParenthesisR() {
-    return findNotNullChildByType(PARENTHESIS_R);
-  }
-
 }

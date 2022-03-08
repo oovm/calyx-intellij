@@ -13,10 +13,4 @@ public interface FutilValue extends PsiElement {
   @Nullable
   FutilNamespace getNamespace();
 
-  @Nullable
-  PsiElement getBits();
-
-  @Nullable
-  PsiElement getNumber();
-
 }

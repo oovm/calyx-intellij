@@ -39,10 +39,4 @@ public class FutilExpressionNode extends ASTWrapperPsiElement implements FutilEx
     return findNotNullChildByClass(FutilRhs.class);
   }
 
-  @Override
-  @NotNull
-  public PsiElement getEq() {
-    return findNotNullChildByType(EQ);
-  }
-
 }

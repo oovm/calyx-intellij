@@ -27,16 +27,4 @@ public class FutilAngleNode extends ASTWrapperPsiElement implements FutilAngle {
     else super.accept(visitor);
   }
 
-  @Override
-  @NotNull
-  public PsiElement getAngleL() {
-    return findNotNullChildByType(ANGLE_L);
-  }
-
-  @Override
-  @NotNull
-  public PsiElement getAngleR() {
-    return findNotNullChildByType(ANGLE_R);
-  }
-
 }
