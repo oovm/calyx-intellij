@@ -29,11 +29,10 @@ public interface FutilTypes {
   IElementType LHS = new FutilElementType("LHS");
   IElementType NAMESPACE = new FutilElementType("NAMESPACE");
   IElementType NORMAL_STATEMENT = new FutilElementType("NORMAL_STATEMENT");
-  IElementType PAR = new FutilElementType("PAR");
   IElementType PARENTHESIS = new FutilElementType("PARENTHESIS");
-  IElementType PAR_STATEMENT = new FutilElementType("PAR_STATEMENT");
   IElementType RHS = new FutilElementType("RHS");
   IElementType SEQ = new FutilElementType("SEQ");
+  IElementType SEQ_STATEMENT = new FutilElementType("SEQ_STATEMENT");
   IElementType SLICE = new FutilElementType("SLICE");
   IElementType VALUE = new FutilElementType("VALUE");
   IElementType WHILE = new FutilElementType("WHILE");
@@ -138,20 +137,17 @@ public interface FutilTypes {
       else if (type == NORMAL_STATEMENT) {
         return new FutilNormalStatementNode(node);
       }
-      else if (type == PAR) {
-        return new FutilParNode(node);
-      }
       else if (type == PARENTHESIS) {
         return new FutilParenthesisNode(node);
-      }
-      else if (type == PAR_STATEMENT) {
-        return new FutilParStatementNode(node);
       }
       else if (type == RHS) {
         return new FutilRhsNode(node);
       }
       else if (type == SEQ) {
         return new FutilSeqNode(node);
+      }
+      else if (type == SEQ_STATEMENT) {
+        return new FutilSeqStatementNode(node);
       }
       else if (type == SLICE) {
         return new FutilSliceNode(node);

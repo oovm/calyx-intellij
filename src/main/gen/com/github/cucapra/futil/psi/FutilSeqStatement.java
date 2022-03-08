@@ -5,6 +5,12 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface FutilPar extends PsiElement {
+public interface FutilSeqStatement extends PsiElement {
+
+  @NotNull
+  FutilSeq getSeq();
+
+  @NotNull
+  FutilBrace getBrace();
 
 }

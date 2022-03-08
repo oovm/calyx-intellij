@@ -23,10 +23,6 @@ public class FutilVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitPar(@NotNull FutilPar o) {
-    visitPsiElement(o);
-  }
-
   public void visitSeq(@NotNull FutilSeq o) {
     visitPsiElement(o);
   }
@@ -107,15 +103,15 @@ public class FutilVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitParStatement(@NotNull FutilParStatement o) {
-    visitPsiElement(o);
-  }
-
   public void visitParenthesis(@NotNull FutilParenthesis o) {
     visitPsiElement(o);
   }
 
   public void visitRhs(@NotNull FutilRhs o) {
+    visitPsiElement(o);
+  }
+
+  public void visitSeqStatement(@NotNull FutilSeqStatement o) {
     visitPsiElement(o);
   }
 

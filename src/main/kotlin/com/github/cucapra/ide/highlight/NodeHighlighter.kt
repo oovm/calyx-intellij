@@ -1,9 +1,7 @@
 package com.github.cucapra.ide.highlight
 
 import com.github.cucapra.futil.file.FutilFileNode
-import com.github.cucapra.futil.psi.FutilAnnotationMark
-import com.github.cucapra.futil.psi.FutilImport
-import com.github.cucapra.futil.psi.FutilRecursiveVisitor
+import com.github.cucapra.futil.psi.*
 import com.intellij.codeInsight.daemon.impl.HighlightInfo
 import com.intellij.codeInsight.daemon.impl.HighlightInfoType
 import com.intellij.codeInsight.daemon.impl.HighlightVisitor
@@ -21,6 +19,14 @@ class NodeHighlighter : FutilRecursiveVisitor(), HighlightVisitor {
 
     override fun visitAnnotationMark(o: FutilAnnotationMark) {
         highlight(o, CalyxColor.SYM_ANNOTATION)
+    }
+
+    override fun visitGroup(o: FutilGroup) {
+        super.visitGroup(o)
+    }
+
+    override fun visitNormalStatement(o: FutilNormalStatement) {
+        super.visitNormalStatement(o)
     }
 
     private fun highlight(element: PsiElement, color: CalyxColor) {

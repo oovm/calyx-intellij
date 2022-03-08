@@ -11,14 +11,14 @@ import static com.github.cucapra.futil.psi.FutilTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.github.cucapra.futil.psi.*;
 
-public class FutilParStatementNode extends ASTWrapperPsiElement implements FutilParStatement {
+public class FutilSeqStatementNode extends ASTWrapperPsiElement implements FutilSeqStatement {
 
-  public FutilParStatementNode(@NotNull ASTNode node) {
+  public FutilSeqStatementNode(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull FutilVisitor visitor) {
-    visitor.visitParStatement(this);
+    visitor.visitSeqStatement(this);
   }
 
   @Override
@@ -28,27 +28,15 @@ public class FutilParStatementNode extends ASTWrapperPsiElement implements Futil
   }
 
   @Override
-  @Nullable
-  public FutilPar getPar() {
-    return findChildByClass(FutilPar.class);
-  }
-
-  @Override
-  @Nullable
+  @NotNull
   public FutilSeq getSeq() {
-    return findChildByClass(FutilSeq.class);
+    return findNotNullChildByClass(FutilSeq.class);
   }
 
   @Override
   @NotNull
   public FutilBrace getBrace() {
     return findNotNullChildByClass(FutilBrace.class);
-  }
-
-  @Override
-  @NotNull
-  public PsiElement getBraceR() {
-    return findNotNullChildByType(BRACE_R);
   }
 
 }

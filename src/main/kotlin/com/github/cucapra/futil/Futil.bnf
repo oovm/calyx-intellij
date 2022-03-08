@@ -14,7 +14,7 @@
     tokenTypeClass = "com.github.cucapra.futil.psi.FutilElementType"
 
     psiImplUtilClass = "com.github.cucapra.futil.psi.FutilASTExtension"
-    generateTokenAccessors = true
+    generateTokenAccessors = false
     tokens = [
         COMMENT = 'regexp:(//|#)[^\r\n]*'
         BLOCK_COMMENT = 'regexp:[/][*][^*]*[*]+([^/*][^*]*[*]+)*[/]'
@@ -56,47 +56,44 @@
 
 Futil ::= top_stat*;
 private top_stat ::=
-    import_statement
+    import_statement SEMICOLON
   | component_statement
-  | SEMICOLON
   ;
 private inner_stat ::=
     seq_stat
-  | annotation? expression
+  | annotation? expression SEMICOLON
   ;
 private seq_stat ::=
     group_statement
   | comb_statement
-  | par_statement
+  | seq_statement
   | while_statement
   | normal_statement
+  | identifier SEMICOLON
   ;
 // ---------------------------------------------------------------------------------------------------------------------
 import_statement ::= IMPORT STRING;
 IMPORT ::= "import"
 // ---------------------------------------------------------------------------------------------------------------------
-component_statement ::= COMPONENT component_name component_target <<brace inner_stat SEMICOLON>>;
+component_statement ::= COMPONENT component_name component_target <<brace inner_stat>>;
 component_name ::= identifier <<parenthesis identifier SEMICOLON>>
 component_target ::= TO <<parenthesis identifier SEMICOLON>>
 COMPONENT ::= "component"
 // ---------------------------------------------------------------------------------------------------------------------
-group_statement ::= GROUP identifier <<brace inner_stat SEMICOLON>>;
+group_statement ::= GROUP identifier <<brace inner_stat>>;
 GROUP  ::= "group";
 // ---------------------------------------------------------------------------------------------------------------------
-comb_statement ::= COMB GROUP identifier <<brace inner_stat SEMICOLON>>;
+comb_statement ::= COMB GROUP identifier <<brace inner_stat>>;
 COMB ::= "comb";
 // ---------------------------------------------------------------------------------------------------------------------
-par_statement ::= seq_k <<brace seq_s SEMICOLON>> BRACE_R;
-private seq_k ::= SEQ | PAR;
-private seq_s ::= seq_stat | identifier;
-SEQ ::= "seq";
-PAR ::= "par"
+seq_statement ::= SEQ <<brace seq_stat>>;
+SEQ ::= "seq" | "par";
 // ---------------------------------------------------------------------------------------------------------------------
-while_statement ::= WHILE namespace [WITH identifier] <<brace inner_stat SEMICOLON>>;
+while_statement ::= WHILE namespace [WITH identifier] <<brace inner_stat>>;
 WHILE ::= "while";
 WITH ::= "with";
 // ---------------------------------------------------------------------------------------------------------------------
-normal_statement ::= identifier <<brace inner_stat SEMICOLON>>;
+normal_statement ::= identifier <<brace inner_stat>>;
 // ---------------------------------------------------------------------------------------------------------------------
 annotation ::= annotation_mark;
 annotation_mark ::= AT SYMBOL?;
@@ -116,5 +113,5 @@ identifier ::= SYMBOL
 // ---------------------------------------------------------------------------------------------------------------------
 meta parenthesis ::= PARENTHESIS_L [<<param>> (<<sep>> <<param>>)* [<<sep>>]] PARENTHESIS_R;
 meta bracket ::= BRACKET_L [<<param>> (<<sep>> <<param>>)* [<<sep>>]] BRACKET_R;
-meta brace   ::= BRACE_L [<<param>> (<<sep>> <<param>>)* [<<sep>>]] BRACE_R
+meta brace   ::= BRACE_L <<param>>* BRACE_R
 meta angle   ::= ANGLE_L [<<param>> (<<sep>> <<param>>)* [<<sep>>]] ANGLE_R
