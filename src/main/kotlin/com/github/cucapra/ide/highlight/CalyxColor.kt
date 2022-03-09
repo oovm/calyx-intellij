@@ -16,8 +16,10 @@ enum class CalyxColor(humanName: Supplier<@AttributeDescriptor String>, default:
     // 特殊关键词
     KEYWORD(CalyxBundle.messagePointer("color.settings.voml.keyword"), Default.KEYWORD),
     SYM_ANNOTATION(CalyxBundle.messagePointer("color.token.annotation"), Default.METADATA),
-    SYM_VARIABLE(CalyxBundle.messagePointer("color.token.variable"), KEYWORD.textAttributesKey),
-    SYM_GROUP(CalyxBundle.messagePointer("color.token.group"), KEYWORD.textAttributesKey),
+    SYM_VARIABLE(CalyxBundle.messagePointer("color.token.variable"), Default.GLOBAL_VARIABLE),
+    SYM_GROUP(CalyxBundle.messagePointer("color.token.group"), Default.CLASS_NAME),
+    SYM_FIELD(CalyxBundle.messagePointer("color.token.group"), Default.STATIC_FIELD),
+    SYM_FUNCTION(CalyxBundle.messagePointer("color.token.group"), Default.STATIC_METHOD),
     // 字面量
     NULL(CalyxBundle.messagePointer("color.token.null"), Default.KEYWORD),
     BOOLEAN(CalyxBundle.messagePointer("color.settings.voml.boolean"), Default.KEYWORD),
