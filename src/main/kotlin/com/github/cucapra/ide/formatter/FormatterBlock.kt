@@ -60,10 +60,10 @@ private fun ASTNode?.isWhitespaceOrEmpty() = this == null || textLength == 0 || 
 private fun FormatterBlock.computeIndent(child: ASTNode): Indent? {
     val isCornerChild = node.firstChildNode == child || node.lastChildNode == child
     return when (node.elementType) {
-//        FutilTypes.TABLE -> when {
-//            isCornerChild || child.elementType == FutilTypes.COMMA -> Indent.getNoneIndent()
-//            else -> Indent.getNormalIndent()
-//        }
+        FutilTypes.BRACE -> when {
+            isCornerChild || child.elementType == FutilTypes.COMMA -> Indent.getNoneIndent()
+            else -> Indent.getNormalIndent()
+        }
         else -> Indent.getNoneIndent()
     }
 }

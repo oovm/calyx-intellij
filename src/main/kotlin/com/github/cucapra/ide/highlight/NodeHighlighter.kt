@@ -58,12 +58,6 @@ class NodeHighlighter : FutilRecursiveVisitor(), HighlightVisitor {
             ids.forEach {
                 highlight(it, CalyxColor.SYM_GROUP)
             }
-            slice
-                .bracket.children
-                .filterIsInstance<FutilIdentifierNode>()
-                .forEach {
-                    highlight(it, CalyxColor.SYM_GROUP)
-                }
         }
         else if (ids.count() > 1) {
             highlight(ids.first(), CalyxColor.SYM_VARIABLE)

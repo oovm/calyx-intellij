@@ -18,7 +18,7 @@ class FutilFoldingBuilder : CustomFoldingBuilder(), DumbAware {
         quick: Boolean
     ) {
         if (root !is FutilFileNode) return
-        val visitor = VomlFoldingVisitor(descriptors)
+        val visitor = FoldingVisitor(descriptors)
         PsiTreeUtil.processElements(root) {
             it.accept(visitor); true
         }
@@ -26,8 +26,7 @@ class FutilFoldingBuilder : CustomFoldingBuilder(), DumbAware {
 
     override fun getLanguagePlaceholderText(node: ASTNode, range: TextRange) =
         when (node.elementType) {
-        //    VomlTypes.TABLE -> "[...]"
-            else -> "{...}"
+            else -> "..."
         }
 
     override fun isRegionCollapsedByDefault(node: ASTNode) = false
