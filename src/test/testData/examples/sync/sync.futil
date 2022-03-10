@@ -55,10 +55,7 @@ component main() -> () {
         //// ANCHOR: control
         while lt.out with cmp {
             seq {
-                par {
-                    read_imm;
-                    write_imm;
-                }
+                par {read_imm;write_imm;}
                 incr_idx;
             }
         }

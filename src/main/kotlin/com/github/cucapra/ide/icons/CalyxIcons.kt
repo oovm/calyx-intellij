@@ -10,6 +10,6 @@ class CalyxIcons : IconProvider() {
         return null
     }
     companion object {
-        val FILE = IconLoader.getIcon("/icons/vomlIcon.svg", CalyxIcons::class.java)
+        val FILE = IconLoader.getIcon("/icons/CalyxIcon.svg", CalyxIcons::class.java)
     }
 }
