@@ -14,7 +14,7 @@ import com.intellij.openapi.editor.DefaultLanguageHighlighterColors as Default
 @Suppress("UnstableApiUsage")
 enum class CalyxColor(humanName: Supplier<@AttributeDescriptor String>, default: TextAttributesKey? = null) {
     // 特殊关键词
-    KEYWORD(CalyxBundle.messagePointer("color.settings.voml.keyword"), Default.KEYWORD),
+    KEYWORD(OptionsBundle.messagePointer("options.language.defaults.keyword"), Default.KEYWORD),
     SYM_ANNOTATION(CalyxBundle.messagePointer("color.token.annotation"), Default.METADATA),
     SYM_VARIABLE(CalyxBundle.messagePointer("color.token.variable"), Default.GLOBAL_VARIABLE),
     SYM_GROUP(CalyxBundle.messagePointer("color.token.group"), Default.CLASS_NAME),
@@ -22,13 +22,12 @@ enum class CalyxColor(humanName: Supplier<@AttributeDescriptor String>, default:
     SYM_FUNCTION(CalyxBundle.messagePointer("color.token.group"), Default.STATIC_METHOD),
     // 字面量
     NULL(CalyxBundle.messagePointer("color.token.null"), Default.KEYWORD),
-    BOOLEAN(CalyxBundle.messagePointer("color.settings.voml.boolean"), Default.KEYWORD),
+    BOOLEAN(CalyxBundle.messagePointer("color.token.boolean"), Default.KEYWORD),
     NUMBER(CalyxBundle.messagePointer("color.token.number"), Default.NUMBER),
-    BITS(CalyxBundle.messagePointer("color.settings.voml.decimal"), Default.KEYWORD),
-    STRING(CalyxBundle.messagePointer("color.settings.voml.string"), Default.STRING),
+    BITS(CalyxBundle.messagePointer("color.token.bits"), Default.KEYWORD),
+    STRING(CalyxBundle.messagePointer("color.token.string"), Default.STRING),
     IDENTIFIER(OptionsBundle.messagePointer("options.language.defaults.identifier"), Default.IDENTIFIER),
     //
-    KEY_SYMBOL(CalyxBundle.messagePointer("color.settings.voml.key_symbol"), Default.STATIC_FIELD),
     ANNOTATION(OptionsBundle.messagePointer("options.java.attribute.descriptor.annotation.name"), Default.METADATA),
     // 标点符号
     PARENTHESES(OptionsBundle.messagePointer("options.language.defaults.parentheses"), Default.PARENTHESES),
@@ -36,7 +35,7 @@ enum class CalyxColor(humanName: Supplier<@AttributeDescriptor String>, default:
     BRACES(OptionsBundle.messagePointer("options.language.defaults.braces"), Default.BRACES),
     DOT(OptionsBundle.messagePointer("options.language.defaults.dot"), Default.DOT),
     COMMA(OptionsBundle.messagePointer("options.language.defaults.comma"), Default.COMMA),
-    SET(CalyxBundle.messagePointer("color.settings.voml.set"), Default.OPERATION_SIGN),
+    SET(CalyxBundle.messagePointer("color.token.set"), Default.OPERATION_SIGN),
     SEMICOLON(OptionsBundle.messagePointer("options.language.defaults.semicolon"), Default.SEMICOLON),
 
     // 注释
