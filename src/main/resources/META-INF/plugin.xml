@@ -1,18 +1,7 @@
 <idea-plugin>
     <id>com.github.cucapra</id>
-    <name>VOML Support</name>
+    <name>Calyx Language</name>
     <vendor>voml</vendor>
-
-    <description><![CDATA[
-Intellij plugin for [VOML](https://github.com/voml), support all IDEs.
-
-## Features
-- Syntax Highlight
-- Braces Matcher
-    ]]></description>
-
-    <!-- Product and plugin compatibility requirements -->
-    <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <!--    <depends optional="true" config-file="plugin-with-rust.xml">org.rust.lang</depends>-->
     <resource-bundle>messages.CalyxBundle</resource-bundle>
@@ -22,72 +11,61 @@ Intellij plugin for [VOML](https://github.com/voml), support all IDEs.
             language="futil"
             extensions="futil"
             fieldName="INSTANCE"
-            implementationClass="com.github.cucapra.futil.file.FutilFileType"
-        />
+            implementationClass="com.github.cucapra.futil.file.FutilFileType"/>
         <lang.parserDefinition
             language="futil"
-            implementationClass="com.github.cucapra.futil.psi.FutilParserDefinition"
-        />
+            implementationClass="com.github.cucapra.futil.psi.FutilParserDefinition"/>
         <!-- Highlight -->
         <colorSettingsPage implementation="com.github.cucapra.ide.highlight.ColorSettingsPage"/>
         <highlightVisitor implementation="com.github.cucapra.ide.highlight.NodeHighlighter"/>
         <lang.syntaxHighlighter
             language="futil"
-            implementationClass="com.github.cucapra.ide.highlight.TokenHighlighter"
-        />
+            implementationClass="com.github.cucapra.ide.highlight.TokenHighlighter"/>
         <!-- commenter -->
         <lang.commenter
             language="futil"
-            implementationClass="com.github.cucapra.ide.VomlCommenter"
-        />
+            implementationClass="com.github.cucapra.ide.assist.FutilCommenter"/>
         <lang.braceMatcher
             language="futil"
-            implementationClass="com.github.cucapra.ide.braces.VomlBraceMatcher"
-        />
+            implementationClass="com.github.cucapra.ide.braces.VomlBraceMatcher"/>
         <lang.quoteHandler
             language="futil"
-            implementationClass="com.github.cucapra.ide.FutilQuoteHandler"
-        />
-        <lang.foldingBuilder
-            language="futil"
-            implementationClass="com.github.cucapra.ide.folding.FutilFoldingBuilder"
-        />
-        <indexPatternBuilder
-            implementation="com.github.cucapra.ide.todo.VomlTodoIndexPatternBuilder"
-        />
+            implementationClass="com.github.cucapra.ide.assist.FutilQuoteHandler"/>
+        <indexPatternBuilder implementation="com.github.cucapra.ide.todo.TodoIndexPatternBuilder"/>
         <todoIndexer
-            filetype="VOML"
-            implementationClass="com.github.cucapra.ide.todo.VomlTodoIndexer"
-        />
+            filetype="futil"
+            implementationClass="com.github.cucapra.ide.todo.TodoIndexer"/>
         <completion.contributor
             language="futil"
-            implementationClass="com.github.cucapra.ide.completion.CompletionContributor"
-        />
+            implementationClass="com.github.cucapra.ide.completion.CompletionContributor"/>
         <annotator
             language="futil"
-            implementationClass="com.github.cucapra.ide.annotator.VomlStringEscapingAnnotator"
-        />
+            implementationClass="com.github.cucapra.ide.annotator.StringEscapingAnnotator"/>
         <additionalTextAttributes scheme="Default" file="colors/VomlDefault.xml"/>
         <additionalTextAttributes scheme="Darcula" file="colors/VomlDarcula.xml"/>
         <langCodeStyleSettingsProvider
-            implementation="com.github.cucapra.ide.codeStyle.FutilLanguageCodeStyleSettings"
-        />
-        <lang.formatter
-            language="futil"
-            implementationClass="com.github.cucapra.ide.formatter.FormattingBuilder"
-        />
+            implementation="com.github.cucapra.ide.codeStyle.CodeStyleSettings"/>
+        <!-- Formatter -->
         <lang.smartEnterProcessor
             language="futil"
-            implementationClass="com.github.cucapra.ide.assist.fixers.VomlSmartEnterProcessor"
-        />
+            implementationClass="com.github.cucapra.ide.assist.fixers.EnterProcessor"/>
+        <lang.formatter
+            language="futil"
+            implementationClass="com.github.cucapra.ide.formatter.FormattingBuilder"/>
+        <!-- Folding -->
+        <lang.foldingBuilder
+            language="futil"
+            implementationClass="com.github.cucapra.ide.folding.FoldingBuilder"/>
+        <!-- Structure View -->
+        <projectViewNestingRulesProvider implementation="com.github.cucapra.ide.views.FileGroup"/>
         <!-- languages -->
     </extensions>
     <actions>
-        <action id="com.github.cucapra.ide.actions.VomlCreateFile"
-                class="com.github.cucapra.ide.actions.VomlCreateFile"
-                text="Voml File"
-                description="Create new Voml file">
-            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFile"/>
-        </action>
+        <!--        <action id="com.github.cucapra.ide.actions.VomlCreateFile"-->
+        <!--                class="com.github.cucapra.ide.actions.VomlCreateFile"-->
+        <!--                text="Voml File"-->
+        <!--                description="Create new Voml file">-->
+        <!--            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFile"/>-->
+        <!--        </action>-->
     </actions>
 </idea-plugin>

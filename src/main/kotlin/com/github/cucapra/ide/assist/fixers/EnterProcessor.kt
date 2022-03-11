@@ -1,19 +1,18 @@
 package com.github.cucapra.ide.assist.fixers
 
-import com.github.cucapra.futil.file.FutilFileNode
 import com.intellij.lang.SmartEnterProcessorWithFixers
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 
-class VomlSmartEnterProcessor : SmartEnterProcessorWithFixers() {
+class EnterProcessor : SmartEnterProcessorWithFixers() {
     init {
         addFixers(
             CommaFixer()
         )
         addEnterProcessors(
-            PlainEnterProcessor()
+            SemiColonFixer()
         )
     }
 
@@ -23,14 +22,6 @@ class VomlSmartEnterProcessor : SmartEnterProcessorWithFixers() {
 
     override fun processDefaultEnter(project: Project, editor: Editor, file: PsiFile) {
         plainEnter(editor)
-    }
-
-    private class PlainEnterProcessor : FixEnterProcessor() {
-        override fun doEnter(atCaret: PsiElement, file: PsiFile, editor: Editor, modified: Boolean): Boolean {
-            if (file !is FutilFileNode) return false
-            plainEnter(editor)
-            return true
-        }
     }
 }
 

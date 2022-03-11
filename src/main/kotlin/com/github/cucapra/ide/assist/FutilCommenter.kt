@@ -1,8 +1,8 @@
-package com.github.cucapra.ide
+package com.github.cucapra.ide.assist
 
 import com.intellij.lang.Commenter
 
-class VomlCommenter : Commenter {
+class FutilCommenter : Commenter {
     override fun getLineCommentPrefix(): String = "//"
 
     override fun getBlockCommentPrefix(): String = "/*"

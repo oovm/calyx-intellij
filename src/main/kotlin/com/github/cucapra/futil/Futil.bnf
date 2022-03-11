@@ -98,7 +98,9 @@ normal_statement ::= identifier <<brace inner_stat>>;
 annotation ::= annotation_mark;
 annotation_mark ::= AT SYMBOL?;
 // ---------------------------------------------------------------------------------------------------------------------
-expression ::= lhs EQ rhs;
+expression ::= lhs EQ rhs {
+    mixin = "com.github.cucapra.futil.mixin.MixinExpression"
+};
 rhs ::= value [QUESTION value];
 lhs ::= namespace slice?;
 // ---------------------------------------------------------------------------------------------------------------------

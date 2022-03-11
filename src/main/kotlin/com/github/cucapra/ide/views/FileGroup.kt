@@ -1,11 +1,11 @@
 package com.github.cucapra.ide.views
 
-import com.intellij.openapi.project.Project
-import com.intellij.usages.impl.FileStructureGroupRuleProvider
-import com.intellij.usages.rules.UsageGroupingRule
+import com.intellij.ide.projectView.ProjectViewNestingRulesProvider
+import org.jetbrains.annotations.NotNull
 
-class FileGroup: FileStructureGroupRuleProvider {
-    override fun getUsageGroupingRule(project: Project): UsageGroupingRule? {
-        TODO("Not yet implemented")
+/// FluentFileGroup: FileStructureGroupRuleProvider
+class FileGroup : ProjectViewNestingRulesProvider {
+    override fun addFileNestingRules(@NotNull consumer: ProjectViewNestingRulesProvider.Consumer) {
+        consumer.addNestingRule(".futil", ".except")
     }
 }
