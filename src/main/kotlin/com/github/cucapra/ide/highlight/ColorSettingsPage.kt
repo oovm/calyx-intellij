@@ -25,7 +25,7 @@ class ColorSettingsPage : ColorSettingsPage {
 
     override fun getAdditionalHighlightingTagToDescriptorMap() = annotatorTags
 
-    override fun getDemoText() = javaClass.getResource("/messages/highlight.rml")!!.readText()
+    override fun getDemoText() = javaClass.getResource("/fileTemplates/colorDemo.futil")!!.readText()
 
 
 }
