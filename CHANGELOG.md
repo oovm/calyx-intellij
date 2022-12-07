@@ -1,19 +1,13 @@
 <!-- Keep a Changelog guide -> https://keepachangelog.com -->
 
-# voml-intellij Changelog
+# Calyx intellij Changelog
 
 ## [Unreleased]
 
-## [0.1.3]
-
-### New
-
-### FIX
-
 ## [0.1.2]
-
 ### Fix
 - The scope tag did not highlight correctly
+- Add support to intellij `223.*`
 
 ## [0.1.1]
 ### New
