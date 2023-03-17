@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>CalyxLanguage</id>
+    <id>Calyx</id>
     <name>Calyx Language</name>
     <vendor>voml</vendor>
     <depends>com.intellij.modules.platform</depends>
